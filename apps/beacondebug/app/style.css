@@ -1,0 +1,67 @@
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: text; /* "none" causes form elements to be unusable */
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*:focus {
+	outline: none;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+}
+
+body > div {
+	padding: 1px 20px;
+}
+
+h1 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+input[type='text'], input[type='tel'], input[type='password'], input[type='number'], textarea, #logdisplay {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.2em;
+	background: #fff;
+	border: 2px solid #aaa;
+	border-radius: 1em;
+	padding: 0.2em 0.5em;
+	margin: 0 0.2em;
+	width: 100%;
+}
+
+.btn, input[type="button"], button {
+	font-size: 1.25em;
+	display: inline-block;
+	padding: 0.4em 1.2em;
+	margin: 0.2em;
+	/*
+	border: 2px solid #727272;
+	border-radius: 1.5em;
+	cursor: pointer;
+	vertical-align: bottom;
+	*/
+}
+#logdisplay {
+	display: inline-block;
+	width: 100%;
+}
+#logdisplay, textarea[name='beaconDebugLog'] {
+	font-size: 0.8em;
+}
+#logdisplay p {
+	margin: 0;
+}
+textarea[name='beaconDebugLog'] {
+	height: 250px;
+}
+

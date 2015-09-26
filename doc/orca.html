@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: orca</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Namespace: orca</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    orca
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1850">line 1850</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="orca.AddressBook.html">AddressBook</a></dt>
+            <dd>Provides access to methods for managing an address book</dd>
+        
+            <dt><a href="orca.Call.html">Call</a></dt>
+            <dd>Provides access to methods for managing an outgoing or incoming call</dd>
+        
+            <dt><a href="orca.Chat.html">Chat</a></dt>
+            <dd>Provides access to methods for managing an outgoing or incoming chat</dd>
+        
+            <dt><a href="orca.FileTransfer.html">FileTransfer</a></dt>
+            <dd>Provides access to methods for managing an outgoing or incoming file transfer</dd>
+        
+            <dt><a href="orca.ImageShare.html">ImageShare</a></dt>
+            <dd>Provides access to methods for managing an outgoing or incoming image share</dd>
+        
+            <dt><a href="orca.ManagedStream.html">ManagedStream</a></dt>
+            <dd>Provides access to media control functions during a call</dd>
+        
+            <dt><a href="orca.Session.html">Session</a></dt>
+            <dd>Manages communications for a given user identity</dd>
+        </dl>
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="createAddressBook"><span class="type-signature">&lt;static> </span>createAddressBook<span class="signature">(userid, token, abConfig)</span><span class="type-signature"> &rarr; {<a href="orca.AddressBook.html">orca.AddressBook</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new addressbook instance for a user.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>userid</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#userid">userid</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The user's unique identifier. In Orca ALU, this is the user's
+public ID.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>token</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#token">token</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An authorization token associated with the provided userid</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>abConfig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#AbConfig">AbConfig</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">AddressBook initialization parameters</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1872">line 1872</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="orca.AddressBook.html">orca.AddressBook</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="createManagedStream"><span class="type-signature">&lt;static> </span>createManagedStream<span class="signature">(rtcMediaStream)</span><span class="type-signature"> &rarr; {<a href="orca.ManagedStream.html">orca.ManagedStream</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a reference to a managed WebRTC media stream that can be attached 
+to a call. Use of this method is optional, as the Call.addStream method will
+automatically create a ManagedStream if a raw RTCMediaStream is passed to it.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>rtcMediaStream</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">RTCMediaStream</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Browser media stream</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1883">line 1883</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="orca.ManagedStream.html">orca.ManagedStream</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="createSession"><span class="type-signature">&lt;static> </span>createSession<span class="signature">(userid, token, sessionConfig)</span><span class="type-signature"> &rarr; {<a href="orca.Session.html">orca.Session</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new session instance for a user to be in connection with the server. 
+In Orca ALU, a Session object corresponds to a SIP REGISTER session.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>userid</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#userid">userid</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The user's unique identifier. In Orca ALU, this is the user's
+public ID.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>token</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#token">token</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An authorization token associated with the provided userid</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sessionConfig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#SessionConfig">SessionConfig</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Session initialization parameters</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1860">line 1860</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="orca.Session.html">orca.Session</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="orca.AddressBook.html">AddressBook</a></li><li><a href="orca.Call.html">Call</a></li><li><a href="orca.Chat.html">Chat</a></li><li><a href="orca.FileTransfer.html">FileTransfer</a></li><li><a href="orca.ImageShare.html">ImageShare</a></li><li><a href="orca.ManagedStream.html">ManagedStream</a></li><li><a href="orca.Session.html">Session</a></li></ul><h3>Events</h3><ul><li><a href="orca.AddressBook.html#event:onAddContact">onAddContact</a></li><li><a href="orca.AddressBook.html#event:onAddMember">onAddMember</a></li><li><a href="orca.AddressBook.html#event:onDeleteContact">onDeleteContact</a></li><li><a href="orca.AddressBook.html#event:onDeleteList">onDeleteList</a></li><li><a href="orca.AddressBook.html#event:onDeleteMember">onDeleteMember</a></li><li><a href="orca.AddressBook.html#event:onError">onError</a></li><li><a href="orca.AddressBook.html#event:onGetContacts">onGetContacts</a></li><li><a href="orca.AddressBook.html#event:onGetLists">onGetLists</a></li><li><a href="orca.AddressBook.html#event:onGetMembers">onGetMembers</a></li><li><a href="orca.AddressBook.html#event:onTransferMember">onTransferMember</a></li><li><a href="orca.AddressBook.html#event:onUpdateContact">onUpdateContact</a></li><li><a href="orca.AddressBook.html#event:onUpdateMember">onUpdateMember</a></li><li><a href="orca.Call.html#event:onAddStream">onAddStream</a></li><li><a href="orca.Call.html#event:onConnected">onConnected</a></li><li><a href="orca.Call.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Call.html#event:onError">onError</a></li><li><a href="orca.Call.html#event:onMessage">onMessage</a></li><li><a href="orca.Call.html#event:onStatus">onStatus</a></li><li><a href="orca.Chat.html#event:onConnected">onConnected</a></li><li><a href="orca.Chat.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Chat.html#event:onError">onError</a></li><li><a href="orca.Chat.html#event:onReceived">onReceived</a></li><li><a href="orca.Chat.html#event:onStatus">onStatus</a></li><li><a href="orca.FileTransfer.html#event:onConnected">onConnected</a></li><li><a href="orca.FileTransfer.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.FileTransfer.html#event:onError">onError</a></li><li><a href="orca.FileTransfer.html#event:onReceived">onReceived</a></li><li><a href="orca.FileTransfer.html#event:onStatus">onStatus</a></li><li><a href="orca.ImageShare.html#event:onConnected">onConnected</a></li><li><a href="orca.ImageShare.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.ImageShare.html#event:onError">onError</a></li><li><a href="orca.ImageShare.html#event:onReceived">onReceived</a></li><li><a href="orca.ImageShare.html#event:onStatus">onStatus</a></li><li><a href="orca.Session.html#event:onConnected">onConnected</a></li><li><a href="orca.Session.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Session.html#event:onError">onError</a></li><li><a href="orca.Session.html#event:onIncoming">onIncoming</a></li><li><a href="orca.Session.html#event:onIncomingChat">onIncomingChat</a></li><li><a href="orca.Session.html#event:onIncomingFileTransfer">onIncomingFileTransfer</a></li><li><a href="orca.Session.html#event:onIncomingImageShare">onIncomingImageShare</a></li><li><a href="orca.Session.html#event:onIncomingPageModeChat">onIncomingPageModeChat</a></li><li><a href="orca.Session.html#event:onIncomingSmsIMDNMessage">onIncomingSmsIMDNMessage</a></li><li><a href="orca.Session.html#event:onIncomingSmsMessage">onIncomingSmsMessage</a></li><li><a href="orca.Session.html#event:onPageModeChatMessageFailed">onPageModeChatMessageFailed</a></li><li><a href="orca.Session.html#event:onPageModeChatMessageSent">onPageModeChatMessageSent</a></li><li><a href="orca.Session.html#event:onSmsIMDNMessageFailed">onSmsIMDNMessageFailed</a></li><li><a href="orca.Session.html#event:onSmsIMDNMessageSent">onSmsIMDNMessageSent</a></li><li><a href="orca.Session.html#event:onSmsMessageFailed">onSmsMessageFailed</a></li><li><a href="orca.Session.html#event:onSmsMessageSent">onSmsMessageSent</a></li><li><a href="orca.Session.html#event:onStatus">onStatus</a></li><li><a href="orca.Session.html#event:onUpdatePresenceFail">onUpdatePresenceFail</a></li><li><a href="orca.Session.html#event:onUpdatePresenceSuccess">onUpdatePresenceSuccess</a></li></ul><h3>Namespaces</h3><ul><li><a href="orca.html">orca</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Wed Sep 16 2015 13:13:40 GMT-0500 (CDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

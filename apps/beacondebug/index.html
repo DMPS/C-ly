@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>Beacon Debug</title>
+		<link rel="stylesheet" href="app/style.css" />
+		<script type="text/javascript" src="../fastclick.js"></script>
+		<!--<script type="text/javascript" src="../ioscroll.js"></script>-->
+
+		<script type="text/javascript" src="../carforward/config.js"></script>
+		<script type="text/javascript" src="../carforward/app/beacon.js"></script>
+		<script type="text/javascript" src="../carforward/app/emitter.js"></script>
+		<script type="text/javascript" src="../carforward/app/settings.js"></script>
+		<script type="text/javascript" src="app/ui.js"></script>
+	</head>
+	<body>
+		<p><a href="javascript:history.back()">Back</a></p>
+		<div>
+			<h1>Beacon Debug</h1>
+			<form id="settingsform">
+				<p><label>UUID <textarea name="beaconUuid" rows="3"></textarea></label></p>
+				<p><label>Major <input type="number" name="beaconMajor" /></label></p>
+				<p><label>Minor <input type="number" name="beaconMinor" /></label></p>
+				<p><button name="save">Save</button>
+					<button name="revert">Revert</button></p>
+				<p><label>Log <textarea name="beaconDebugLog"></textarea></label>
+					<span id="logdisplay"></span>
+				</p>
+				<p><button name="debugStart">Start</button>
+					<button name="debugStop">Stop</button></p>
+			</form>
+		</div>
+	</body>
+</html>

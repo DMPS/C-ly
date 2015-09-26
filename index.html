@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orca ALU Developer Guide</title>
+</head>
+<body>
+<div class="bookmarks"></div>
+<div class="container">
+    <h1 class="bm" id="start">Orca ALU Developer Guide</h1>
+    <p>Orca.js is a JavaScript library including WebRTC calling, chat, and file transfer.
+    
+    <h2 class="bm" id="sampleapps">Sample Apps</h2>
+    <ul class="largelinks">
+        <li><a href="apps/simple/index.html"><strong>Simple Example App</strong></a> is easy-to-follow code for registration and simple calling. Excerpts from this code are used in the developer walkthrough below.</li>
+        <li><a href="apps/multicall/index.html"><strong>MultiCall App</strong></a> is a test app that demonstrates the full range of Orca ALU features.</li>
+        <li><a href="apps/carforward/index.html"><strong>Car Forward App</strong></a> is a demo that shows call forwarding between a mobile device and a car device. Optionally, this can use cordova-plugin-ibeacon to detect beacons on iOS and Android.</li>
+        <li><a href="apps/beacondebug/index.html"><strong>Beacon Debug Page</strong></a></li>
+    </ul>
+    
+    <h2 class="bm" id="documentation">Documentation</h2>
+    <ul>
+        <li><a href="doc/index.html"><strong>Full API reference (JSDoc)</strong></a></li>
+    </ul>
+    
+    <h2 class="bm" id="walkthrough">Developer Walkthrough</h2>
+    
+    <h3 class="bm" id="files">File Dependencies</h3>
+    <p>Include this file in the webpage head or body, before any Orca-dependent application code.</p>
+    
+<pre><code>&lt;script type="text/javascript" src="<a href="orca.min.js">orca.min.js</a>"&gt;&lt;/script&gt;</code></pre>
+    
+    <h3 class="bm" id="create-session">Create a Session</h3>
+    <p>A Session represents a user's SIP registration, and must be connected before using any calling or communication features.</p>
+    
+<pre><code>var userID, token, sessionConfig, session;
+
+// Define settings and credentials
+<a href="doc/global.html#userid">userID</a> = 'sip:+442079590000@sandbox.demo.alcatel-lucent.com';    // User's public ID
+<a href="doc/global.html#token">token</a> = {
+    id: '+442079590000',            // User's private ID
+    key: 'password',                // User's password
+    displayName: 'Bob'              // User's display name (optional)
+};
+<a href="doc/global.html#SessionConfig">sessionConfig</a> = {
+    uri: 'ws://10.1.11.127:80',     // WebRTC gateway server (or use wss://...:443 for secure)
+    provider: orcaALU,              // Reference to Orca ALU code object
+    mediatypes: 'audio',            // Default to audio if incoming call does not specify
+    providerConfig: {}              // Set any advanced settings here
+};
+
+// Create Session
+session = <a href="doc/orca.html#createSession">orca.createSession</a>(<a href="doc/global.html#userid">userID</a>, <a href="doc/global.html#token">token</a>, <a href="doc/global.html#SessionConfig">sessionConfig</a>);
+
+// Attach Session callbacks
+session.<a href="doc/orca.Session.html#event:onConnected">onConnected</a> = function (event) {
+    // Successfully connected to server
+};
+session.<a href="doc/orca.Session.html#event:onDisconnected">onDisconnected</a> = function (event) {
+    // Connection with server has been terminated or lost
+};
+session.<a href="doc/orca.Session.html#event:onError">onError</a> = function (error, event) {
+    // Connection error. See SessionError in orca.js for possible errors.
+};
+session.<a href="doc/orca.Session.html#event:onIncoming">onIncoming</a> = function (receivedCall, event) {
+    // Receiving an incoming call
+};
+session.<a href="doc/orca.Session.html#event:onStatus">onStatus</a> = function (status, event) {
+    // A status event has occurred. See SessionStatus in orca.js for possible statuses.
+};
+
+// Connect Session
+session.<a href="doc/orca.Session.html#connect">connect</a>();
+</code></pre>
+
+    <h4>Expected events</h4>
+    <ul>
+        <li>If registration succeeds, <code>Session.onConnected</code> will be invoked, and the status will change to <code>SessionStatus.CONNECTED</code>.</li>
+        <li>If registration fails, or if the Session disconnects for any reason, <code>Session.onDisconnected</code> will be invoked, the status will change to <code>SessionStatus.DISCONNECTED</code>, and <a href="doc/orca.Session.html#event:onError"><code>Session.onError</code></a> will return any error information.</li>
+    </ul>
+    
+    <h3 class="bm" id="create-call">Create a Call</h3>
+    <p>While the Session is in a connected state, the user can make outgoing calls.</p>
+    <p>Use <code>navigator.getUserMedia</code> to get the user's webcam and microphone stream to attach to the call. This will prompt the user for permissions.</p>
+    
+<pre><code>var to, mediatypes, call;
+
+// Define call parameters
+to = 'sip:+442079590001@sandbox.demo.alcatel-lucent.com';  // Public ID to call
+mediatypes = 'audio,video';             // Type of media to invite
+
+// Create Call
+call = session.<a href="doc/orca.Session.html#createCall">createCall</a>(to, mediatypes);
+
+// Attach Call callbacks
+call.<a href="doc/orca.Call.html#event:onConnected">onConnected</a> = function (event) {
+    // Successfully connected to other party
+};
+call.<a href="doc/orca.Call.html#event:onDisconnected">onDisconnected</a> = function (event) {
+    // The call has been disconnected
+};
+call.<a href="doc/orca.Call.html#event:onAddStream">onAddStream</a> = function (managedStream, event) {
+    // A stream from the remote party has been received
+    
+    // Display remote stream in video element
+    // Example: &lt;video id="vidRemote" autoplay="autoplay"&gt;&lt;/video&gt;
+    document.getElementById('vidRemote').src = window.URL.createObjectURL(managedStream.stream());
+};
+call.<a href="doc/orca.Call.html#event:onError">onError</a> = function (error, event) {
+    // Call error. See <a href="doc/global.html#CallError">CallError</a> in orca.js for possible errors.
+};
+call.<a href="doc/orca.Call.html#event:onStatus">onStatus</a> = function (status, event) {
+    // Call status change. See <a href="doc/global.html#CallStatus">CallStatus</a> in orca.js for possible statuses.
+}
+
+// Add local media stream, then connect
+navigator.getUserMedia(
+    { video: true, audio: true }, // Type of local media to get
+    function (stream) {
+        // Successfully got local stream
+
+        // Add local media stream
+        call.<a href="doc/orca.Call.html#addStream">addStream</a>(stream);
+        
+        // Connect Call
+        call.<a href="doc/orca.Call.html#connect">connect</a>();
+
+        // Display local stream in a video element
+        // Example: &lt;video id="vidLocal" autoplay="autoplay" muted="muted"&gt;&lt;/video&gt;
+        document.getElementById('vidLocal').src = window.URL.createObjectURL(stream);
+    },
+    function (error) {
+        // Failed to get local stream
+        window.alert('getUserMedia failed. Error: ' + error.name);
+    }
+);
+</code></pre>
+
+    <h4>Expected events</h4>
+    
+    <ul>
+        <li>If the call connects the two parties successfully, then <code>Call.onConnected</code> will be invoked, and the call status will change to <code>CallStatus.CONNECTED</code>.</li>
+        <li>If the call fails, or if the call ends for any reason, <code>Call.onDisconnected</code> will be invoked, the status will change to <code>CallStatus.DISCONNECTED</code>, and <a href="doc/orca.Call.html#event:onError"><code>Call.onError</code></a> will return any error information.</p></li>
+    </ul>
+    
+    <h3 class="bm" id="receiving-calls">Receiving Calls</h3>
+    <p>While the Session is connected, <code>Session.onIncoming</code> informs the app of any incoming calls. The app should display UI components allowing the user to accept or reject the call.</p>
+    
+    <p>Below is a simplistic example where an incoming call causes a pop-up box to appear.</p>
+    
+<pre><code>// Attach this callback after orca.createSession...
+session.onIncoming = function (receivedCall, event) {
+    // Receiving an incoming call
+    incomingCall = receivedCall;
+    
+    // Display UI for user to choose callAccept() or callReject()
+    if (window.confirm('Accept call from ' + incomingCall.remoteIdentities()[0].id + '?')) {
+        // User clicked OK
+        callAccept();
+    } else {
+        // User clicked Cancel
+        callReject();
+    }
+};</code></pre>
+
+    <h4>Reject Incoming Call</h4>
+    
+    <p>Rejecting an incoming call will cause both parties to receive <code>Call.onDisconnected</code> events.</p>
+    
+<pre><code>function callReject() {
+    incomingCall.<a href="doc/orca.Call.html#reject">reject</a>();
+}</code></pre>
+    
+    <h4>Accept Incoming Call</h4>
+    
+    <p>The code to accept an incoming call is very similar to making an outgoing call, and the same events will occur when the call has either connected or failed. Again, <code>navigator.getUserMedia</code> will prompt the user for permissions.</p>
+    
+<pre><code>function callAccept() {
+    // Accept the incoming call
+    call = incomingCall;
+    
+    // Attach Call callbacks
+    call.<a href="doc/orca.Call.html#event:onConnected">onConnected</a> = function (event) {
+        // Successfully connected to other party
+    };
+    call.<a href="doc/orca.Call.html#event:onDisconnected">onDisconnected</a> = function (event) {
+        // The call has been disconnected
+    };
+    call.<a href="doc/orca.Call.html#event:onAddStream">onAddStream</a> = function (managedStream, event) {
+        // A stream from the remote party has been received
+
+        // Display remote stream in video element
+        // Example: &lt;video id="vidRemote" autoplay="autoplay"&gt;&lt;/video&gt; 
+        document.getElementById('vidRemote').src = window.URL.createObjectURL(managedStream.stream());
+    };
+    call.<a href="doc/orca.Call.html#event:onError">onError</a> = function (error, event) {
+        // Call error. See <a href="doc/global.html#CallError">CallError</a> in orca.js for possible errors.
+    };
+    call.<a href="doc/orca.Call.html#event:onStatus">onStatus</a> = function (status, event) {
+        // Call status change. See <a href="doc/global.html#CallStatus">CallStatus</a> in orca.js for possible statuses.
+    }
+
+    // Add local media stream, then connect
+    navigator.getUserMedia(
+        { video: true, audio: true }, // Type of local media to get
+        function (stream) {
+            // Successfully got local stream
+
+            // Add local media stream
+            call.<a href="doc/orca.Call.html#addStream">addStream</a>(stream);
+
+            // Connect Call
+            call.<a href="doc/orca.Call.html#connect">connect</a>();
+
+            // Display local stream in a video element
+            // Example: &lt;video id="vidLocal" autoplay="autoplay" muted="muted"&gt;&lt;/video&gt;
+            document.getElementById('vidLocal').src = window.URL.createObjectURL(stream);
+        },
+        function (error) {
+            // Failed to get local stream
+            window.alert('getUserMedia failed. Error: ' + error.name);
+        }
+    );
+}</code></pre>
+
+    <h3 class="bm" id="disconnecting">Disconnecting</h3>
+    
+    <p>A Session or Call can be ended by invoking its <code>disconnect</code> method. Once successfully torn down, the object's <code>onDisconnected</code> callback will be invoked, and its status will change to <code>DISCONNECTED</code>.</p>
+    <p>If a Session becomes disconnected, then any active Calls created from that Session will also be disconnected.</p>
+    <p>Refer to <code><a href="doc/orca.Call.html#disconnect">Call.disconnect</a>, <a href="doc/orca.Call.html#event:onDisconnected">Call.onDisconnected</a>, <a href="doc/orca.Session.html#disconnect">Session.disconnect</a>, <a href="doc/orca.Session.html#event:onDisconnected">Session.onDisconnected</a></code>.
+    
+    <h3 class="bm" id="in-call-functions">In-Call Functions</h3>
+    
+    <p>While the call is in a connected state, there is a set of in-call functions that may be used: mute/unmute, transfer, hold/resume, upgrade/downgrade, and DTMF.</p>
+    
+    <h4>Mute/Unmute</h4>
+    
+    <p>These are convenience functions to stop and resume the user's outgoing media stream. When muted, stream is still being sent, but data from the user's webcam and microphone are not transmitted over it.</p>
+    
+<pre><code>// I want to stop sending my media
+call.<a href="doc/orca.Call.html#mute">mute</a>();
+
+// I want to start sending my media again
+call.<a href="doc/orca.Call.html#unmute">unmute</a>();</code></pre>
+
+    <h4>Transfer</h4>
+    
+    <p>Orca supports unattended call transfer. Suppose User A and User B are in a call. User A transfers the call to User C. As a result, User A is disconnected from the call, User B is alone but still connected to the call, and User C receives an incoming call. When User C answers the call, User B and User C will be connected.</p>
+<pre><code>// Suppose +442079590000 and +442079590001 are in a call.
+// If +442079590000 performs the transfer below, then it will drop
+// and +442079590001 and +442079590002 will be connected instead.
+
+call.<a href="doc/orca.Call.html#transfer">transfer</a>('sip:+442079590002@sandbox.demo.alcatel-lucent.com');
+</code></pre>
+    
+    <h4>Hold/Resume</h4>
+    
+    <p>Suppose User A and User B are in a call. User A places User B on hold with the <code>Call.hold</code> function. User A will receive a <code>CallStatus.HOLD</code> status event, and User B will receive a <code>CallStatus.REMOTE_HOLD</code> status event. At this point, User B cannot remove himself from hold, but he can still disconnect from the call if he so chooses. User A then takes User B off of hold using the <code>Call.resume</code> function. Both users receive a <code>CallStatus.UNHOLD</code> status event.</p>
+    <p>Use the <code><a href="doc/orca.Call.html#event:onStatus">Call.onStatus</a></code> event to be notified of changes in the hold status:</p>
+<pre><code>// Attach this callback after creating or receiving the call
+call.<a href="doc/orca.Call.html#event:onStatus">onStatus</a> = function (status, event) {
+    switch (status) {
+    case CallStatus.HOLD:
+        // I have put the remote party on hold
+        break;
+    case CallStatus.REMOTE_HOLD:
+        // The remote party has put me on hold
+        break;
+    case CallStatus.UNHOLD:
+        // The call is no longer on hold
+        break;
+    // Handle other statuses here
+    }
+};
+</code></pre>
+    <p>During an active call, the user can attempt to put the other party on or off hold:</p>
+<pre><code>// To put the remote party on hold
+call.<a href="doc/orca.Call.html#hold">hold</a>();
+
+// To take the remote party off hold
+call.<a href="doc/orca.Call.html#resume">resume</a>();
+</code></pre>
+    
+    <h4>Upgrade/Downgrade</h4>
+    
+    <p>When a call is already connected, the functions <code>call.addStream</code> and <code>call.connect</code> can be used again to change the media type of the call. For example, if the user is in an audiovideo call, the function below could be used to downgrade to an audio only call.</p>
+    
+<pre><code>function callDowngrade() {
+    navigator.getUserMedia(
+        { video: false, audio: true }, // Type of local media to get
+        function (stream) {
+            // Successfully got local stream
+
+            // Add local media stream
+            call.<a href="doc/orca.Call.html#addStream">addStream</a>(stream);
+
+            // Connect Call
+            call.<a href="doc/orca.Call.html#connect">connect</a>();
+        },
+        function (error) {
+            // Failed to get local stream
+            window.alert('getUserMedia failed. Error: ' + error.name);
+        }
+    );
+}</code></pre>
+    
+    <p>Likewise, an audio-only call may be upgraded to an audiovideo call. Note the only difference is the type of local media requested.</p>
+    
+<pre><code>function callUpgrade() {
+    navigator.getUserMedia(
+        { video: true, audio: true }, // Type of local media to get
+        function (stream) {
+            // Successfully got local stream
+
+            // Add local media stream
+            call.<a href="doc/orca.Call.html#addStream">addStream</a>(stream);
+
+            // Connect Call
+            call.<a href="doc/orca.Call.html#connect">connect</a>();
+
+            // Display local stream in a video element
+            // Example: &lt;video id="vidLocal" autoplay="autoplay" muted="muted"&gt;&lt;/video&gt;
+            document.getElementById('vidLocal').src = window.URL.createObjectURL(stream);
+        },
+        function (error) {
+            // Failed to get local stream
+            window.alert('getUserMedia failed. Error: ' + error.name);
+        }
+    );
+}</code></pre>
+
+    <p>Orca will notify the other party that the media type has changed via the <code>CallStatus.UPGRADING</code> or <code>CallStatus.DOWNGRADING</code> status event. The other party should then modify their own local stream to match. Here is an example of setting the <code>Call.onStatus</code> callback to handle the upgrading/downgrading statuses.</p>
+    
+<pre><code>// Attach this callback after creating or receiving the call
+call.<a href="doc/orca.Call.html#event:onStatus">onStatus</a> = function (status, event) {
+    switch (status) {
+    case CallStatus.UPGRADING:
+        if (window.confirm('The other person wants to upgrade to an audiovideo call.'
+                + 'Would you like to share your webcam?')) {
+            callUpgrade();
+        } else {
+            call.reject();
+        }
+        break;
+    case CallStatus.DOWNGRADING:
+        window.alert('The other person wants to downgrade to an audio-only call.'
+                + 'Please allow microphone access.');
+        callDowngrade();
+        break;
+    // Handle other statuses here
+    }
+};</code></pre>
+    
+    <h4>Send DTMF</h4>
+    
+    <p>Orca supports sending DTMF. However, it does not support receiving DTMF, so there are limited applications for this. Send DTMF is mostly used for human-to-machine calling, where the machine requests that the user enters some digits via the phone keypad.</p>
+    
+<pre><code>call.<a href="doc/orca.Call.html#sendDTMF">sendDTMF</a>('123#*');</code></pre>
+    
+<!--
+NOTE: The Conference Call feature described below requires advanced conferencing accounts.
+Currently the API Developer Program is recommending the use of non-advanced conferencing accounts
+which are compatible with Call Control and Call Direction APIs.
+
+    <h3 class="bm" id="conference">Conference Call</h3>
+    
+    <p>A conference call is created in the same way as a regular call, only with a list of two or more participants passed into <code>Session.createCall</code>.</p>
+    
+<pre><code>call = session.createCall(['sip:huey@example.com', 'sip:dewey@example.com',
+        'sip:louie@example.com'], 'audio,video');</code></pre>
+
+    <p>After invoking <code>call.connect()</code>, the conference initiator will be connected to the conference bridge, and all other participants will receive an incoming call to join the conference bridge. Everyone in the conference will receive a single mixed stream of all the audio and video from the other participants.</p>
+
+    <p>Most of the in-call functions do not work in a conference call. Call transfer, hold/resume, upgrade/downgrade, and send DTMF do not work. Mute/unmute works.</p>
+    
+    <p>There are two additional in-call functions which only the initiator of a conference call may use: <a href="doc/orca.Call.html#addParticipant"><code>Call.addParticipant</code></a> and <a href="doc/orca.Call.html#removeParticipant"><code>Call.removeParticipant</code></a>. A participant who is added will receive an incoming call to join the conference. A participant who is removed will be disconnected from the conference.</p>
+
+<pre><code>call.removeParticipant('sip:louie@example.com');
+call.addParticipant('sip:joey@example.com');</code></pre>
+    
+    <p>Incidentally, there is a second way to create a conference call, which is to call the conference factory URI, and then use <code>Call.addParticipant</code> too add more people to the conference bridge.</p>
+    
+<pre><code>call = session.createCall('sip:ALU_CONF@example.com');
+// After the call is connected...
+call.addParticipant('sip:huey@example.com');
+call.addParticipant('sip:dewey@example.com');
+call.addParticipant('sip:louie@example.com');
+</code></pre>
+-->
+    
+    <h3 class="bm" id="pagemodechat">Page Mode Chat</h3>
+	<p>A page mode chat is a single message sent to another user. As with calls, both parties must be online with Sessions in the connected state.</p>
+	<p>The following Session callbacks are used to receive page mode chat messages, and to check if a sent message failed.</p>
+	<pre><code>// Attach these callbacks after orca.createSession...
+session.<a href="doc/orca.Session.html#event:onIncomingPageModeChat">onIncomingPageModeChat</a> = function (event) {
+    // Received page mode chat.
+    // event.from is the sender's SIP URI.
+    // event.message is the message content string.
+};
+session.<a href="doc/orca.Session.html#event:onPageModeChatMessageFailed">onPageModeChatMessageFailed</a> = function (message, event) {
+    // Failed to send page mode chat.
+    // message is the content string that could not be sent.
+    // event.to is the recipient.
+};
+</code></pre>To send a page mode chat message to another user:</p>
+	<pre><code>session.<a href="doc/orca.Session.html#sendPageModeChatMessage">sendPageModeChatMessage</a>(
+    'sip:+442079590001@sandbox.demo.alcatel-lucent.com',
+    'How was the meeting?'
+);</code></pre>
+
+    <h3 class="bm" id="chat">Chat</h3>
+	<p>In a Chat, two users can send textual messages to each other over a WebRTC DataChannel.</p>
+	<p>An incoming Chat is received via event callback <code><a href="doc/orca.Session.html#event:onIncomingChat">Session.onIncomingChat</a></code>:</p>
+	<pre><code>// Attach this callback after orca.createSession...
+session.<a href="doc/orca.Session.html#event:onIncomingChat">onIncomingChat</a> = function (incomingChat, event) {
+    // Receiving an incoming Chat
+
+    // Display UI for user to accept or reject
+    if (window.confirm('Accept chat from ' + incomingChat.remoteIdentities()[0].id + '?')) {
+        // User clicked OK
+
+        // Attach Chat callbacks
+        incomingChat.<a href="doc/orca.Chat.html#event:onReceived">onReceived</a> = function (message, event) {
+            // Received a textual message from the other party
+            // message is the text content received
+        };
+        incomingChat.<a href="doc/orca.Chat.html#event:onConnected">onConnected</a> = function (event) {
+            // The Chat is connected
+        };
+        incomingChat.<a href="doc/orca.Chat.html#event:onDisonnected">onDisonnected</a> = function (event) {
+            // The Chat is disconnected
+        };
+        incomingChat.<a href="doc/orca.Chat.html#event:onStatus">onStatus</a> = function (status, event) {
+            // The Chat status changed
+        };
+        incomingChat.<a href="doc/orca.Chat.html#event:onError">onError</a> = function (error, event) {
+            // The Chat encountered an error
+        };
+
+        // Connect Chat
+        incomingChat.<a href="doc/orca.Chat.html#connect">connect</a>();
+
+    } else {
+        // User clicked Cancel
+
+        // Decline Chat
+        incomingChat.<a href="doc/orca.Chat.html#reject">reject</a>();
+
+    }
+};
+</code></pre>
+	<p>The user can invite another party to chat using <code><a href="doc/orca.Session.html#createChat">Session.createChat</a></code>, similar to how calls are created using <code>Session.createCall</code>:</p>
+	<pre><code>// Create Chat
+var chat = session.<a href="doc/orca.Session.html#createChat">createChat</a>('sip:+442079590001@sandbox.demo.alcatel-lucent.com');
+
+// Attach Chat callbacks
+chat.<a href="doc/orca.Chat.html#event:onReceived">onReceived</a> = function (message, event) {
+    // Received a textual message from the other party
+    // message is the text content received
+};
+chat.<a href="doc/orca.Chat.html#event:onConnected">onConnected</a> = function (event) {
+    // The Chat is connected
+};
+chat.<a href="doc/orca.Chat.html#event:onDisonnected">onDisonnected</a> = function (event) {
+    // The Chat is disconnected
+};
+chat.<a href="doc/orca.Chat.html#event:onStatus">onStatus</a> = function (status, event) {
+    // The Chat status changed
+};
+chat.<a href="doc/orca.Chat.html#event:onError">onError</a> = function (error, event) {
+    // The Chat encountered an error
+};
+
+// Connect Chat
+chat.<a href="doc/orca.Chat.html#connect">connect</a>();
+</code></pre>
+	<p>Once the Chat is in a connected state (indicated by the <code><a href="doc/orca.Chat.html#event:onConnected">Chat.onConnected</a></code> event), both parties may send messages to each other.</p>
+	<pre><code>chat.<a href="doc/orca.Chat.html#sendMessage">sendMessage</a>('Hello, friend!');
+</code></pre>
+	<p>Either party can disconnect the Chat at any time. After the Chat is disconnected, messages cannot be sent on it, and it should not be used anymore.</p>
+	<pre><code>chat.<a href="doc/orca.Chat.html#disconnect">disconnect</a>();
+</code></pre>
+	
+	<h3 class="bm" id="filetransfer">FileTransfer and ImageShare</h3>
+	<p>A user can send a single file to another user over WebRTC DataChannel using FileTransfer or ImageShare. FileTransfer and ImageShare are identical except that ImageShare supports image files only, and their API structure is very similar to Chat.</p>
+	<p>An incoming FileTransfer or ImageShare is received via event callback <code><a href="doc/orca.Session.html#event:onIncomingFileTransfer">Session.onIncomingFileTransfer</a></code> or <code><a href="doc/orca.Session.html#event:onIncomingImageShare">Session.onIncomingImageShare</a></code>. In the following example, the same function is used to handle both callbacks:</p>
+	<pre><code>function onIncomingFileOrImage(incomingFile, event) {
+    // Receiving an incoming FileTransfer or ImageShare
+
+    // Display UI for user to accept or reject
+    if (window.confirm('Accept file from ' + incomingFile.remoteIdentities()[0].id + '?')) {
+        // User clicked OK
+
+        // Attach callbacks
+        incomingFile.<a href="doc/orca.FileTransfer.html#event:onReceived">onReceived</a> = function (message, event) {
+            // Received the file from the other party.
+            // The FileTransfer or ImageShare will disconnect after this.
+
+            // Populate a link in to download the file
+            // Example: &lt;a href="" id="downloadLink"&gt;&lt;/a&gt;
+            var a = document.getElementById('downloadLink'),
+                objectUrl = window.URL.createObjectURL(message),
+                fileName = event.fileProperties.name,
+                fileType = event.fileProperties.type,
+                fileSize = event.fileProperties.size;
+            a.href = objectUrl;
+            a.target = '_blank';
+            a.download = fileName;
+            a.innerHTML = 'Download ' + fileName
+                + ' (Type: ' + fileType
+                + ', Size: ' + fileSize + ' bytes)';
+        };
+        incomingFile.<a href="doc/orca.FileTransfer.html#event:onConnected">onConnected</a> = function (event) {
+            // Connected
+        };
+        incomingFile.<a href="doc/orca.FileTransfer.html#event:onDisonnected">onDisonnected</a> = function (event) {
+            // Disconnected
+        };
+        incomingFile.<a href="doc/orca.FileTransfer.html#event:onStatus">onStatus</a> = function (status, event) {
+            // Status changed
+            switch (status) {
+            case <a href="doc/global.html#CommStatus">CommStatus</a>.REJECTED:
+                // Rejected by other party. Will be disconnected.
+                break;
+            case <a href="doc/global.html#CommStatus">CommStatus</a>.PROGRESS:
+                // File progress update
+                console.log('Transferred ' + event.progress + ' of ' + event.size + ' bytes');
+                break;
+            case <a href="doc/global.html#CommStatus">CommStatus</a>.SENDSUCCESS:
+                // Send succeeded
+                break;
+            case <a href="doc/global.html#CommStatus">CommStatus</a>.SENDFAIL:
+                // Send failed
+                break;
+            }
+        };
+        incomingFile.<a href="doc/orca.FileTransfer.html#event:onError">onError</a> = function (error, event) {
+            // Encountered an error
+        };
+
+        // Connect
+        incomingFile.<a href="doc/orca.FileTransfer.html#connect">connect</a>();
+
+    } else {
+        // User clicked Cancel
+
+        // Decline FileTransfer or ImageShare
+        incomingFile.<a href="doc/orca.FileTransfer.html#reject">reject</a>();
+
+    }
+}
+// Attach these callbacks after orca.createSession...
+session.<a href="doc/orca.Session.html#event:onIncomingFileTransfer">onIncomingFileTransfer</a> = onIncomingFileOrImage;
+session.<a href="doc/orca.Session.html#event:onIncomingImageShare">onIncomingImageShare</a> = onIncomingFileOrImage;
+</code></pre>
+    <p>The user can send a file to another user with <code><a href="doc/orca.Session.html#createFileTransfer">Session.createFileTransfer</a></code> or <code><a href="doc/orca.Session.html#createImageShare">Session.createImageShare</a></code>. The code below creates a FileTransfer.</p>
+    <pre><code>// Get file from an HTML file input element &lt;input type="file" id="fileInput" /&gt;
+var myFile = document.getElementById('fileInput').files[0];
+if (!myFile) {
+    window.alert('Please select a file first');
+}
+
+// Create FileTransfer
+var filetransfer = session.<a href="doc/orca.Session.html#createFileTransfer">createFileTransfer</a>(
+    'sip:+442079590001@sandbox.demo.alcatel-lucent.com',
+    myFile
+);
+
+// Attach callbacks
+filetransfer.<a href="doc/orca.FileTransfer.html#event:onReceived">onReceived</a> = function (message, event) {
+    // Received the file from the other party.
+    // (Since we are sending the file in this case, this event will not happen)
+};
+filetransfer.<a href="doc/orca.FileTransfer.html#event:onConnected">onConnected</a> = function (event) {
+    // Connected
+};
+filetransfer.<a href="doc/orca.FileTransfer.html#event:onDisonnected">onDisonnected</a> = function (event) {
+    // Disconnected
+};
+filetransfer.<a href="doc/orca.FileTransfer.html#event:onStatus">onStatus</a> = function (status, event) {
+    // Status changed
+    switch (status) {
+    case <a href="doc/global.html#CommStatus">CommStatus</a>.REJECTED:
+        // Rejected by other party. Will be disconnected.
+        break;
+    case <a href="doc/global.html#CommStatus">CommStatus</a>.PROGRESS:
+        // File progress update
+        console.log('Transferred ' + event.progress + ' of ' + event.size + ' bytes');
+        break;
+    case <a href="doc/global.html#CommStatus">CommStatus</a>.SENDSUCCESS:
+        // Send succeeded
+        break;
+    case <a href="doc/global.html#CommStatus">CommStatus</a>.SENDFAIL:
+        // Send failed
+        break;
+    }
+};
+filetransfer.<a href="doc/orca.FileTransfer.html#event:onError">onError</a> = function (error, event) {
+    // Encountered an error
+};
+
+// Connect
+filetransfer.<a href="doc/orca.FileTransfer.html#connect">connect</a>();
+</code></pre>
+
+	<p>A FileTransfer or ImageShare will disconnect automatically after successful completion, or after encountering an error. If a FileTransfer or ImageShare is in progress, it can be canceled at any time by either party with <code><a href="doc/orca.FileTransfer.html#disconnect">FileTransfer.disconnect</a></code> or <code><a href="doc/orca.ImageShare.html#disconnect">ImageShare.disconnect</a></code>.</p>
+    
+    <h2 class="bm" id="requirements">User Requirements</h2>
+    <p>Orca ALU works best in the latest version of <a href="https://www.google.com/intl/en-US/chrome/browser/">Google Chrome</a> for desktop. For mobile, the Google Chrome Android app has WebRTC support, and certain open-source Cordova plugins can be used to construct WebRTC applications for iOS and Android.</p>
+    <p>Hardware requirements are a webcam, a microphone, and an internet connection.</p>
+    
+    <h2 class="bm" id="troubleshooting">Troubleshooting</h2>
+    <ul>
+        <li><strong>Check settings and credentials.</strong> Can't get a Session to connect? The sample apps provide the correct formatting of parameters which must be passed into orca.createSession(). Your lab environment support team will be able to provide needed values, such as WebSocket Gateway URI, Conference Factory URI, Public ID, Private ID, and Password.</li>
+        <li><strong>Clear advanced settings.</strong> Problems with calling, or still can't get that Session to connect? If you are testing using Multicall App, try doing Advanced Settings &gt; Clear to default. (This will reset all settings to the values in config.js.) If you are testing your own application code, refer to the <a href="apps/simple/index.html">Simple Example App</a> for how to structure your <code>sessionConfig</code> parameters, and avoid adding any other parameters that are not needed.</li>
+        <li><strong>Reset camera/microphone permissions.</strong> If the browser is denying camera/microphone permissions, this may become a roadblock to connecting a call. Refer to browser documentation on managing these permissions: <a href="https://support.google.com/chrome/answer/2693767?hl=en">Chrome</a>.</li>
+        <li><strong>Examine JavaScript console logs.</strong> Orca ALU prints valuable information to the JS console. This includes session parameters, SIP messages, error details, and more. Refer to browser documentation on viewing the JS console: <a href="https://developer.chrome.com/devtools/docs/console">Chrome</a>, <a href="https://developer.mozilla.org/en-US/docs/Tools/Web_Console">Firefox</a>.</li>
+        <li><strong>WebRTC Internals</strong>. Google Chrome provides a WebRTC debugging tool, which shows detailed information on the PeerConnections in any open tabs. Access the tool by entering the following location in the Chrome address bar: <em>chrome://webrtc-internals</em></li>
+    </ul>
+        
+    <h2 class="bm" id="about">About Orca ALU</h2>
+    <p>Alcatel-Lucent provides this Orca.js library to demonstrate its Rapport-WebRTC solutions.</p>
+    
+    <p>Copyright &copy; 2015 Alcatel-Lucent</p>
+    
+</div>
+
+<script type="text/javascript">
+<!--
+(function () {
+    if (document.getElementsByClassName) {
+        var h = '<ul>', i, j, t, a, anchors = document.getElementsByClassName('bm');
+        for (i = 0; i < anchors.length; i += 1) {
+            a = anchors[i];
+            t = parseInt((a.tagName).substr(1))
+            h += '<li>';
+            for (j = 0; j < t - 1; j += 1) {
+                h += '&nbsp; &nbsp; &nbsp;';
+            }
+            h += '<a href="#' + a.id + '">' + a.innerHTML + '</a></li>';
+        }
+        h += '</ul>';
+        console.log(h);
+        document.getElementsByClassName('bookmarks')[0].innerHTML = h;
+    }
+}());
+-->
+</script>
+<style type="text/css">
+    body {
+        font-family: Helvetia, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .bookmarks {
+        position: fixed;
+        left: 0; /* or right */
+        top: 30px;
+        bottom: 0;
+        overflow: auto;
+        width: 300px;
+    }
+    .bookmarks ul, .bookmarks li {
+        list-style: none;
+    }
+    .container {
+        width: 760px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+    .largelinks a {
+        font-size: 1.5em;
+    }
+    .largelinks li {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    @media all and (max-width: 1400px) and (min-width: 1100px) {
+        body {
+            padding-left: 300px;
+        }
+    }
+    @media all and (max-width: 1100px) {
+        .bookmarks {
+            display: none;
+        }
+    }
+    @media all and (max-width: 800px) {
+        .container {
+            width: 100%;
+        }
+    }
+    pre code {
+        display: block;
+        padding: 20px;
+        background-color: #eee;
+        overflow-x: auto;
+    }
+</style>
+
+</body>
+</html>

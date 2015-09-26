@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Orca.js Multiple Calls Demo</title>
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+	<link href="../jquery-ui.css" rel="stylesheet">
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script type="text/javascript" src="../jquery-ui.js"></script>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
+		<!-- Orca Min -->
+		<script type="text/javascript" src="../../orca.min.js"></script>
+
+		<!-- Orca Debug
+		<script type="text/javascript" src="../../msrp-stack/src/ChunkReceiver.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/ChunkSender.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/ConnectionConfig.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/ContentType.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/CPIMParser.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Exceptions.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Message.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/parser.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Status.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Uri.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/util.js"></script>
+		<script type="text/javascript" src="../../orca_version.js"></script>
+		<script type="text/javascript" src="../../orca.js"></script>
+		<script type="text/javascript" src="../../orcaALU.js"></script>
+		<script type="text/javascript" src="../../sip.js"></script>
+		<script type="text/javascript" src="../../sipMsrp.js"></script>
+		<script type="text/javascript" src="../../sipAdapter.js"></script>
+		<script type="text/javascript" src="../../restAdapter.js"></script>
+		-->
+
+	<!-- Application Code -->
+	<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="application.js"></script>
+</head>
+<body>
+	<h1>Orca.js Multiple Calls Demo</h1>
+	
+	<div class="apiObject apiSession">
+		<div id="Session0">
+			<h2>Session</h2>
+			<span class="status"></span>
+            <p class="error"></p>
+            <p><label>Login <input type="text" name="user_login" placeholder="e.g. +442079590000" /></label>
+                <label>Password <input type="password" name="user_password" /></label>
+                <span class="buttons">
+                <input type="button" class="sessionConnect" value="Connect" />
+                <input type="button" class="sessionDisconnect" value="Disconnect" />
+                </span>
+            </p>
+        </div>
+	</div>
+	
+	<div class="apiObject apiCommunication">
+		<h2>Communications</h2>
+        <div class="tabs" id="Calls">
+            <div name="cid__new">New</div>
+        </div>
+        <div id="Call0">
+            <p class="status"></p>
+            <p class="error"></p>
+            <p class="callState idle"><label>To <input type="text" name="call_to" placeholder="e.g. +442079590001" /></label></p>
+            <p class="callState idle">
+            	<label><input type="radio" name="mediatype" value="audio,video" checked/> video</label>
+            	<label><input type="radio" name="mediatype" value="audio"/> audio</label>
+            	<label><input type="radio" name="mediatype" value="chat"/> chat</label>
+            	<label><input type="radio" name="mediatype" value="pagemodechat"/> page mode chat</label>
+            	<label><input type="radio" name="mediatype" value="filetransfer"/> file</label>
+            	<label><input type="radio" name="mediatype" value="imageshare"/> image share</label>
+            </p>
+            <p class="callState idle fileTransferOnly">
+            	<input type="file" name="comm_file" />
+            </p>
+            <p class="callState getmedia"><strong>Please allow camera/microphone permissions.</strong></p>
+            <p class="callState outgoing">Contacting <span class="callParticipants"></span>...</p>
+            <p class="callState incoming">Incoming from <span class="callParticipants"></span><span class="incomingFileInfo"></span></p>
+            <p class="callState connected hold remotehold">Connected with <span class="callParticipants"></span></p>
+            <p class="callState connected"></p>
+            <p class="callState connected msrpUnnecessary">
+                <input type="button" class="callStartVideo" value="Start video" />
+                <input type="button" class="callStopVideo" value="Stop video" />
+            </p>
+            <p class="callState connected hold msrpUnnecessary">
+                <input type="button" class="callMute"  value="Mute" />
+                <input type="button" class="callHold"  value="Hold" />
+                <label><input type="checkbox" name="call_hold_sendonly" /> sendonly hold</label>
+            </p>
+            <p class="callState connected msrpUnnecessary">
+                <input type="text" name="call_transfer" placeholder="transferee number" />
+                <input type="button" class="callTransfer" value="Transfer" />
+            </p>
+            <p class="callState connected msrpUnnecessary">
+                <input type="text" name="call_dtmf" placeholder="dtmf code" />
+                <input type="button" class="callDTMF" value="Send DTMF" />
+            </p>
+            <!--
+            <p class="callState connected conference msrpUnnecessary">
+                Conference participant: <input type="text" name="call_participant" placeholder="participant number" />
+                <input type="button" class="callAddParticipant" value="Add" />
+                <input type="button" class="callRemoveParticipant" value="Remove" />
+            </p>
+            -->
+            <p class="callState disconnected">Communication ended. <input type="button" class="callRemove" value="Remove tab" /></p>
+            <p class="removePageModeChat"><input type="button" class="pageModeChatRemove" value="Remove tab" /></p>
+            <p class="buttons">
+                <input type="button" class="callConnect" value="Connect" />
+                <!--
+                <input type="button" class="callEmptyConf" value="Empty conf call" />
+                -->
+                <input type="button" class="callDisconnect" value="Disconnect" />
+                <input type="button" class="callReject" value="Reject" />
+            </p>
+            <p class="callState idle">
+	    </p>
+            <p>
+                getStatus(): <span class="callGetStatusDisplay"></span>
+            </p>
+        </div>
+	</div>
+
+	<div class="videoContainer" id="Video0">
+		<video class="remoteVideo" autoplay="autoplay"></video>
+		<video class="localVideo" autoplay="autoplay" muted="muted"></video>
+		<audio class="remoteAudio" autoplay="autoplay"></audio>
+	</div>
+	<div class="dataContainer" id="Data0">
+		<p class="textarea">
+			<textarea id="dataChannelText" disabled="" rows="20" cols="50"></textarea>
+		</p>
+		<p class="textarea">
+			<textarea id="dataChannelSend" rows="3" cols="50" placeholder="Input text here to send message."></textarea>
+		</p>
+		<p class="textarea">
+			<input type="button" class="sendMessage" value="Send" />
+			<input type="button" class="clearMessage" value="Clear" />
+		</p>
+	</div>
+
+	<div class="pageModeChat" id="PageModeChat0">
+		<p class="textarea">
+			<textarea id="pageModeChatText" disabled="" rows="20" cols="50"></textarea>
+		</p>
+		<p class="textarea">
+			<textarea id="pageModeChatSend" disabled="" rows="3" cols="50" placeholder="Input text here to send message."></textarea>
+		</p>
+		<p class="buttons">
+			<input type="button" class="sendPageModeChatMessage" value="Send" />
+			<input type="button" class="clearPageModeChatMessage" value="Clear" />
+		</p>
+	</div>
+
+	<div class="fileContainer" id="File0">
+		<p>
+			<span class="fileOutgoing">Sent </span>
+			<span class="fileIncoming">Received </span>
+			<span class="fileProgress">0</span>/<span class="fileSize">0</span> bytes
+			<span class="fileComplete">- Complete!</span>
+			<a href="" class="fileLink">Download File</a>
+		</p>
+	</div>
+
+	<div class="imageContainer" id="Image0">
+		<p>
+			<span class="imageOutgoing">Sent </span>
+			<span class="imageIncoming">Received </span>
+			<span class="imageProgress">0</span>/<span class="imageSize">0</span> bytes
+			<span class="imageComplete">- Complete!</span>
+			<a href="" class="imageLink"><img src="" class="imageIcon"/></a>
+		</p>
+	</div>
+	
+	<div class="advsettings" id="advsettings">
+	<h2 class="expander">Advanced Settings</h2>
+	<div class="expandable" id="AdvancedSettings">
+		<h3>Session Config</h3>
+		<p><label>Websocket URL <input type="text" name="session_uri" placeholder="e.g. ws://example.com:8080" class="longer" /></label><br />
+			<small>(Use <strong>ws://...:80</strong> for insecure or <strong>wss://...:443</strong> for secure)</small></p>
+		<p>Default Media Types
+			<label><input type="radio" name="session_mediatypes" value="audio" />audio</label>
+			<label><input type="radio" name="session_mediatypes" value="audio,video"/>audio,video</label>
+		</p>
+		<p><label>Auto accept video upgrades/downgrades <input type="checkbox" name="mediaOptions_autoUpgrade" /></label></p>
+		<p><label>Use first ICE candidate <input type="checkbox" name="mediaOptions_useFirstCandidate" /></label></p>
+		<h3>Account</h3>
+		<p>Public ID: 
+			<input type="text" name="account_puidPrefix" placeholder="public id prefix" class="short"/> 
+			<span class="userLogin">[Login]</span> 
+			<input type="text" name="account_puidSuffix" placeholder="public id suffix" class="longer" />
+		</p>
+		<p>Private ID: 
+			<input type="text" name="account_pridPrefix" placeholder="private id prefix" class="short"/>
+			<span class="userLogin">[Login]</span> 
+			<input type="text" name="account_pridSuffix" placeholder="private id suffix" class="longer" />
+		</p>
+		<p><label>Display Name <input type="text" name="account_displayName" placeholder="Smith PC1" /></label></p>
+
+		<h3 class="expander">More Options</h3>
+		<div class="expandable">
+		<h3>Conference Factory</h3>
+		<p><label>Conference Factory <input type="text" name="conferenceFactory" placeholder="e.g. sip:conference@example.com" class="longer" /></label></p>
+		<p><label>Conf call workaround for Chrome <input type="checkbox" name="confworkaround_chrome" /></label></p>
+
+		<h3>Media</h3>
+		<p><label>STUN Server <input type="text" name="mediaOptions_stun" placeholder="e.g. stun.l.google.com:19302" class="longer" /></label></p>
+		<p><label>Crypto <input type="radio" name="mediaOptions_crypto"  value="sdes-srtp" checked/>SDES</label>
+			<label><input type="radio" name="mediaOptions_crypto" value="dtls-srtp"/>DTLS</label></p>
+		<p><label>Add missing webrtc audio (OPUS),video (VP8, red, ulpfec) codecs to incoming SDP offer/answer <input type="checkbox" name="mediaOptions_addCodecs" checked/></label></p>
+		<p><label>Remove IPV6 candidates <input type="checkbox" name="mediaOptions_removeIPV6Candidates" /></label></p>
+		<p><label>Enable IMDN Capability <input type="checkbox" name="mediaOptions_enableIMDNCapability" /></label></p>
+		<p>DTMF method
+			<label><input type="radio" name="mediaOptions_dtmf" value="inband" checked/> inband</label>
+			<label><input type="radio" name="mediaOptions_dtmf" value="sip"/> sip-info</label>
+			<label><input type="radio" name="mediaOptions_dtmf" value="both"/> both</label>
+		</p>
+		<p><label>DTMF duration <input type="text" name="mediaOptions_dtmfDuration" placeholder="e.g. 100" /></label></p>
+		<p><label>DTMF gap <input type="text" name="mediaOptions_dtmfGap" placeholder="e.g. 70" /></label></p>
+		<p><label>DTMF workaround for MRF <input type="checkbox" name="mediaOptions_dtmfWorkaround" /></label></p>
+		
+		<p><label>Audio bandwidth (kbps) <input type="text" name="mediaOptions_audioBandwidth" placeholder="e.g. 50" /></label></p>
+		<p><label>Video bandwidth (kbps) <input type="text" name="mediaOptions_videoBandwidth" placeholder="e.g. 256" /></label></p>
+		<p><label>Data bandwidth (kbps) <input type="text" name="mediaOptions_dataBandwidth" placeholder="e.g. 1000" /></label></p>
+
+		<p><label><input type="checkbox" name="mediaOptions_audioCodecs_toggle" class="checklistToggle" /> Limit Audio Codecs to use in Offer/Answer</label></p>
+		<blockquote style="display: none">
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="opus/48000/2" /> opus/48000/2</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="ISAC/16000" /> ISAC/16000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="ISAC/32000" /> ISAC/32000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="PCMU/8000" /> PCMU/8000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="PCMA/8000" /> PCMA/8000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="G722/8000" /> G722/8000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="CN/8000" /> CN/8000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="CN/16000" /> CN/16000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="CN/32000" /> CN/32000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="telephone-event/8000" /> telephone-event/8000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="telephone-event/16000" /> telephone-event/16000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="telephone-event/32000" /> telephone-event/32000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_audioCodecs" value="telephone-event/48000" /> telephone-event/48000</label></p>
+			<p><label>Additional Audio Codecs (comma separated list)<input type="text" name="mediaOptions_audioCodecs" class="longer" placeholder="e.g. AMR/8000,AMR/16000/1" /></label></p>
+		</blockquote>
+
+		<p><label><input type="checkbox" name="mediaOptions_videoCodecs_toggle" class="checklistToggle" /> Limit Video Codecs to use in Offer/Answer</label></p>
+		<blockquote style="display: none">
+			<p><label><input type="checkbox" name="mediaOptions_videoCodecs" value="VP8/90000" /> VP8/90000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_videoCodecs" value="H264/90000" /> H264/90000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_videoCodecs" value="red/90000" /> red/90000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_videoCodecs" value="ulpfec/90000" /> ulpfec/90000</label></p>
+			<p><label><input type="checkbox" name="mediaOptions_videoCodecs" value="rtx/90000" /> rtx/90000</label></p>
+			<p><label>Additional Video Codecs (comma separated list)<input type="text" name="mediaOptions_videoCodecs" class="longer" placeholder="e.g. vc1/90000,VP9/90000" /></label></p>
+		</blockquote>
+		<h3>Miscellaneous</h3>
+		<p><label>Breaker <input type="checkbox" name="mediaOptions_breaker" /></label></p>
+		<p><label>Strip Extra SSRC <input type="checkbox" name="mediaOptions_stripExtraSSRC" /></label></p>
+		<p><label>MSID Handling
+			<select name="mediaOptions_msidHandling">
+				<option value='0'>Strip Incoming MSID</option>
+				<option value='1'>Generate/Replace Incoming MSID (default)</option>
+				<option value='2'>None, no applicable handling</option>
+			</select>
+		   </label>
+		</p>
+		<h3>Service Continuity</h3>
+		<p><label> Register on Startup <input type="checkbox" name="servContOptions_autoRegisterOnStartup" /></label></p>
+		<p><label> Auto-Answer Time After Registration <input type="text" name="servContOptions_autoAnswerTime" placeholder="eg. 10 (range 1 to 30)"  /></label></p>
+		<p><label> Maximum Recovery Attempts  <input type="text" name="servContOptions_maxRecoveryAttempts" placeholder="e.g. 12"  /></label></p>
+		<p><label> Network Connection Retry Interval  <input type="text" name="servContOptions_networkRetryInterval" placeholder="e.g. 1"  /></label></p>
+		<p><label>Send Register On Call Recovery <input type="checkbox" name="servContOptions_sendRegisterOnRecovery" /></label></p>
+		<p><label> Register Response Time  <input type="text" name="servContOptions_registerResponseTime" placeholder="e.g. 1"  /></label></p>
+		<p><label> Register Refresh Time  <input type="text" name="servContOptions_registerRefreshTime" placeholder="e.g. 1"  /></label></p>
+		<h3>MDSP</h3>
+		<p><label> Enable MDSP Support <input type="checkbox" name="mdspOptions_enableMDSPsupport" /></label></p>
+		<p><label> Secondary Device Identifier <input type="text" name="mdspOptions_secondaryDeviceId" placeholder='eg. mobility="fixed" or +g.gsma.rcs.ipcall' /></label></p>
+		</div>
+		
+		<p>
+			<input type="button" class="settingsSave" value="Save" />
+			<input type="button" class="settingsRevert" value="Revert" />
+			<input type="button" class="settingsClear" value="Clear to default" />
+			<span class="settingsMessage"></span>
+		</p>
+	</div>
+	</div>
+</body>
+</html>

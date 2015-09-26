@@ -1,0 +1,4574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Global</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Global</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+        
+        <dl>
+                
+<dt>
+    <h4 class="name" id="AbConfig">AbConfig</h4>
+    
+    
+    <p class="summary">Configuration properties for an orca.AddressBook. (This describes a data type. It is
+not accessible as a global object.)</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>provider</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Reference to implementation providing actual functionality.
+For Orca ALU, this is the orcaALU object.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>contactServerURI</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The address of the contact server</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>baseResourcePath</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The base API resource path</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1683">line 1683</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="AddressBookError">AddressBookError</h4>
+    
+    
+    <p class="summary">Possible errors associated with an orca.AddressBook</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>AUTHENTICATION_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">User credentials are invalid</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>CONFIG_ERROR</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Config are null or invalid</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>PARAMETERS_ERROR</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Parameters are null or invalid</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>NETWORK_ERROR</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">No response recieved within maximum expected time</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1608">line 1608</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="AddressBookStatus">AddressBookStatus</h4>
+    
+    
+    <p class="summary">Possible states of an orca.AddressBook</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>GETLISTS_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The getLists operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>GETMEMBERS_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The getMembers operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>GETCONTACTS_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The getContacts operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ADDMEMBER_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The addMember operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ADDCONTACT_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The addContact operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UPDATEMEMBER_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The updateMebmer operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UPDATECONTACT_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The updateContact operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DELETELIST_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The deleteList operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DELETEMEMBER_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The deleteMember operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DELETECONTACT_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The deleteContact operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>TRANSFERMEMBER_SUCCESSFUL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The transferMember operation successful</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>GETLISTS_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The getLists operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>GETMEMBERS_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The getMembers operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>GETCONTACTS_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The getContacts operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ADDMEMBER_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The addMember operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ADDCONTACT_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The addContact operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UPDATEMEMBER_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The updateMebmer operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UPDATECONTACT_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The updateContact operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DELETELIST_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The deleteList operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DELETEMEMBER_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The deleteMember operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DELETECONTACT_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The deleteContact operation failed</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>TRANSFERMEMBER_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The transferMember operation failed</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1624">line 1624</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="Attribute">Attribute</h4>
+    
+    
+    <p class="summary">An AddressBook attribute's basic required data</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">name of attribute</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">value of attribute</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1689">line 1689</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="CallError">CallError</h4>
+    
+    
+    <p class="summary">Possible errors associated with an orca.Call</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>NETWORK_ERROR</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An error has occured</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1456">line 1456</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="CallStatus">CallStatus</h4>
+    
+    
+    <p class="summary">Possible states of an orca.Call</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>CONNECTING</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call is in the process of connecting to the remote party</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>HOLD</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call has been placed on hold by the local party</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UNHOLD</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call has been taken out of the "on hold" state (Not returned
+by Call.getStatus, as not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>REJECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call refused by the remote party (Not returned by 
+Call.getStatus, as not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>CANCELED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call canceled</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>CONNECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call is connected to the remote party</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DISCONNECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call is terminated</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>REMOTE_HOLD</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The call has been placed on hold by the remote party (Orca
+ALU only, not in standard Orca)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UPGRADING</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Received an invitation to upgrade to an audiovideo call. At
+this point, an updated media stream should be attached using <a href="orca.Call.html#addStream">orca.Call#addStream</a>
+(Not returned by Call.getStatus, as not a persistent state) (Orca ALU only, not in
+standard Orca)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DOWNGRADING</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Received an invitation to downgrade to an audio-only call.
+At this point, an updated media stream should be attached using <a href="orca.Call.html#addStream">orca.Call#addStream</a>
+(Not returned by Call.getStatus, as not a persistent state) (Orca ALU only, not in standard
+Orca)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ADDSTREAM</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Received a media stream from the remote party (Not returned by
+Call.getStatus, as not a persistent state) (Orca ALU only, not in standard Orca)</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1465">line 1465</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="CommError">CommError</h4>
+    
+    
+    <p class="summary">Possible errors associated with an orca.Chat, orca.FileTransfer, or orca.ImageShare</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>NETWORK_ERROR</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">An error has occured</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1504">line 1504</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="CommStatus">CommStatus</h4>
+    
+    
+    <p class="summary">Possible states of an orca.Chat, orca.FileTransfer, or orca.ImageShare</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>CONNECTING</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The communication is in the process of connecting to the remote party</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>REJECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The communication refused by the remote party (Not returned by 
+getStatus, as not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>CANCELED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The communication canceled</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>CONNECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The communication is connected to the remote party</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DISCONNECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The communication is terminated</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>PROGRESS</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Some portion of a file has been sent or received. (Not returned by 
+getStatus, as not a persistent state.)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>SENDSUCCESS</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The outgoing file or message has been delivered completely. (Not returned by 
+getStatus, as not a persistent state.)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>SENDFAIL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The outgoing file or message failed to be delivered. (Not returned by 
+getStatus, as not a persistent state.)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>RECEIVED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The incoming file or message has been received in full. (Not returned by 
+getStatus, as not a persistent state.)</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1514">line 1514</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="Contact">Contact</h4>
+    
+    
+    <p class="summary">An AddressBook contact's basic required data</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">SIP/TEL/ACR address, which is used as a unique ID</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>attributes</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Attribute[]</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Any attributes</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1685">line 1685</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="Event">Event</h4>
+    
+    
+    <p class="summary">Provides information about an event. (This describes a data type. It is not
+accessible as a global object.)</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#CallStatus">CallStatus</a></span>
+|
+
+<span class="param-type"><a href="global.html#SessionStatus">SessionStatus</a></span>
+|
+
+<span class="param-type"><a href="global.html#AddressBookStatus">AddressBookStatus</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Gets the name/type indicator of the event</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1544">line 1544</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="List">List</h4>
+    
+    
+    <p class="summary">An AddressBook list's basic required data</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">a unique ID</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>members</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Member[]</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">member in the list</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1691">line 1691</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="Member">Member</h4>
+    
+    
+    <p class="summary">An AddressBook member's basic required data</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">SIP/TEL/ACR address, which is used as a unique ID</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>attributes</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Attribute[]</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Any attributes</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1687">line 1687</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="PeerIdentity">PeerIdentity</h4>
+    
+    
+    <p class="summary">Provides information about the identity of a communications peer. (This describes a
+data type. It is not accessible as a global object.)</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the unique identifier or address string of the associated user</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1546">line 1546</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="ProviderConfig">ProviderConfig</h4>
+    
+    
+    <p class="summary">Provider-specific configuration properties for an orca.Session. (This
+describes a data type. It is not accessible as a global object.) Most of these
+advanced settings are not needed in most situations and have sensible default values,
+thus the application does not need to set them. Typically the application will only
+need to set conferenceFactoryURI (if advanced conferencing feature is available)
+and crypto (to specify whether DTLS or SDES should be used.)</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>interfaceType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Value for the signalling interface. Set as 'SIP-WS' for 
+SIP over Websocket, 'REST-WS' for REST over Websocket. Default is SIP-WS. REST-WS was supported
+from ORCA ECMS load 29.14.01.xx and it can only work with IMS 13.1/ISC 24.1/IBC-4 R4.0 
+as a proof-of-concept.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sendAuthOnInitReg</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, we include Authorization header in initial sip REGISTER.
+The default is false meaning we would not send authorization in initial register.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sendAuthOnReregDereg</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, we include Authorization header in sip re-register
+and de-register messages.  The default is true meaning we would send authorization in re-register and de-register.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>reUseCallidInReregDereg</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, we will re-use the same callId used on initial register,
+when sending re-register or de-register.  The default is true, meaning we will re-use the same callId.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>stun</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The STUN server to use for calls. Defaults to blank (none).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bundle</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If false, the line "a=group:BUNDLE" is removed from the SDP if
+present. If true, no change is made. Defaults to true.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>crypto</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Default is 'sdes-srtp'. "dtls-srtp" is used for Firefox 
+as dtls-srtp is the only supported cryption for Firefox.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>conferenceFactoryURI</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Conference factory public ID, needed for conference
+calling feature.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>expires</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Value for the Expires header in the initial SIP
+REGISTER. Default is '600'.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>addCodecs</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If set to true, then if VP8 codec is missing from incoming
+SDP, then all codecs are replaced with the VP8, red, and ulpfec codecs. If false, no change
+is made. Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dtmf</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Specify the DTMF method to use. Set as 'sip' for SIP INFO, 'inband'
+for inband, or 'both' for both. Default is both.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dtmfDuration</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Duration of a DTMF tone, in milliseconds. Default is 100.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dtmfGap</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Gap between DTMF tones, in milliseconds. Default is 70.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>audioBandwidth</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The target bandwidth for audio in kilobits per
+second. Default is unconstrained.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>videoBandwidth</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The target bandwidth for video in kilobits per
+second. Default is unconstrained.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>dataBandwidth</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The target bandwidth for MSRP over DataChannel
+in kilobits per second. Default is unconstrained.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>audioCodecs</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Comma-separated list of allowed audio codecs.
+If a value is given, then any audio codecs not in the list will be removed from SDP.
+If no value or an empty string is given, then no change is made. Default is no change.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>videoCodecs</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Comma-separated list of allowed video codecs.
+If a value is given, then any video codecs not in the list will be removed from SDP.
+If no value or an empty string is given, then no change is made. Default is no change.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>persistentPC</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, create a new PeerConnection whenever the
+MediaStream is changed during a call, for example during a video upgrade or downgrade.
+If false, use the same PeerConnection for the duration of the call. Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>breaker</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">This option is only for interoperation with the webrtc2sip open
+source project. True to enable the RTCWeb Breaker, false for no change. Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>stripExtraSSRC</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, remove extra and unnecessary 'synchronization
+source' attributes (a=ssrc:) from SDP (offers or answers) which Chrome may have added
+in scenarios involving video upgrade or downgrade. Default is true.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>confWorkaroundChrome</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, enable workaround for conference call
+issue found in certain environments. Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>useFirstCandidate</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, use the first ICE candidate immediately
+without waiting for any more candidates to be gathered. This is useful to prevent delay
+in calling if candidate gathering is slow, particularly in Firefox.
+If false, wait for the end of ICE candidates. Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>removeIPV6Candidates</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, remove any IPV6 candidates from SDP.
+If false, no change is made. Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>autoAnswerTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Used for service continuity feature.
+How long (in seconds) after registration the client will auto-answer new call requests.
+This applies only to the first registration done after the page loads (which is presumed
+to be an auto-register) and to internal re-registrations done as part of service recovery.
+Default is 0.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxRecoveryAttempts</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Used for service continuity feature.
+How many attempts are made to re-establish the websocket connection after a network outage.
+Default is 5.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>networkRetryInterval</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Used for service continuity feature.
+How long the client waits between attempts to re-establish the websocket connection.
+Default is 5.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>sendRegisterOnRecovery</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Used for testing.
+If true, send a register or re-invite once the websocket connection has been restored.
+Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>registerResponseTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">How long to wait (in seconds) for a 
+register response before failing the websocket connection. Default is 0.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>registerRefreshTime</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">How often (in seconds) to do register
+refreshes. Default is 0.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>msidHandling</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Select the type of handling on incoming msid in SDP.
+We may select from among: 'Strip Incoming MSID (default)', 'Generate/Replace Incoming MSID'
+or 'None, no applicable handling'.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>enableMDSPsupport</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">If true, then this device and contact is sharing
+its PUID with other devices.  This device is either the main devie or a secondary MDSP
+(Multiple Devices Shared PUID) device.  Default is false.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>secondaryDeviceId</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">String to be included in SIP Contact Header to
+identify this device and contact as an MDSP (Multiple Devices Shared PUID) Secondary device.
+Only applicable if enableMDSPsupport is true.  AT&T is expected to set this to, mobility="fixed",
+while, Verizon is expected to set this to, +g.gsma.rcs.ipcall. Default is, mobility="fixed".</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1677">line 1677</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="SessionConfig">SessionConfig</h4>
+    
+    
+    <p class="summary">Configuration properties for an orca.Session. (This describes a data type. It is
+not accessible as a global object.)</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>uri</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The address of the gateway server</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>provider</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Reference to implementation providing actual functionality.
+For Orca ALU, this is the orcaALU object.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>mediatypes</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The default media streams to use in calls if not specified.
+Examples: "audio", "audio,video". Note that this is only the default, so video calls are
+still possible even if this value is set to "audio".</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>providerConfig</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#ProviderConfig">ProviderConfig</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Provider-specific settings</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1675">line 1675</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="SessionError">SessionError</h4>
+    
+    
+    <p class="summary">Possible errors associated with an orca.Session</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>AUTHENTICATION_FAILED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">User credentials are invalid</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>NETWORK_ERROR</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">No response recieved within maximum expected time</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1548">line 1548</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="SessionStatus">SessionStatus</h4>
+    
+    
+    <p class="summary">Possible states of an orca.Session</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">enum</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>CONNECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session has been successfully established</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>CONNECTING</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session is in the process of being established</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>DISCONNECTED</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session has been torn down</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>INCOMINGCALL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session has received an incoming call (Not returned by
+Session.getStatus, as not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>AUTHENTICATING</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session is in the process of authentication</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>INCOMINGCHAT</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session has received an incoming chat (Not returned by
+Session.getStatus, as not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>INCOMINGFILE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session has received an incoming file transfer (Not returned by
+Session.getStatus, as not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>INCOMINGIMAGE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session has received an incoming image share (Not returned by
+Session.getStatus, as not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>INCOMINGAUTOANSWER</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The session has received an incoming call that
+should be answered automatically (Not returned by Session.getStatus, as it is not a 
+persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UPDATEPRESENCESUCCESS</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Update presence succeeded
+(Not returned by Session.getStatus, as it is not a persistent state)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>UPDATEPRESENCEFAIL</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Update presence failed
+(Not returned by Session.getStatus, as it is not a persistent state)</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1571">line 1571</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="token">token</h4>
+    
+    
+    <p class="summary">An authorization token associated with the provided userid. In Orca ALU, this is
+an object containing authorization information for the SIP registration. (This describes a
+data type. It is not accessible as a global object.)</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">object</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The user's private ID</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The user's password</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>displayName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The user's display name (optional)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>imsauth</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Set as 'sso-token' to add an Authorization header for single
+sign-on applications. Otherwise the special header is not added. Default is undefined.</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1681">line 1681</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="userid">userid</h4>
+    
+    
+    <p class="summary">A user's unique identifier. In Orca ALU, this is the user's public ID. (This
+describes a data type. It is not accessible as a global object.)</p>
+    
+</dt>
+<dd>
+    
+    
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1679">line 1679</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+            </dl>
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="orca.AddressBook.html">AddressBook</a></li><li><a href="orca.Call.html">Call</a></li><li><a href="orca.Chat.html">Chat</a></li><li><a href="orca.FileTransfer.html">FileTransfer</a></li><li><a href="orca.ImageShare.html">ImageShare</a></li><li><a href="orca.ManagedStream.html">ManagedStream</a></li><li><a href="orca.Session.html">Session</a></li></ul><h3>Events</h3><ul><li><a href="orca.AddressBook.html#event:onAddContact">onAddContact</a></li><li><a href="orca.AddressBook.html#event:onAddMember">onAddMember</a></li><li><a href="orca.AddressBook.html#event:onDeleteContact">onDeleteContact</a></li><li><a href="orca.AddressBook.html#event:onDeleteList">onDeleteList</a></li><li><a href="orca.AddressBook.html#event:onDeleteMember">onDeleteMember</a></li><li><a href="orca.AddressBook.html#event:onError">onError</a></li><li><a href="orca.AddressBook.html#event:onGetContacts">onGetContacts</a></li><li><a href="orca.AddressBook.html#event:onGetLists">onGetLists</a></li><li><a href="orca.AddressBook.html#event:onGetMembers">onGetMembers</a></li><li><a href="orca.AddressBook.html#event:onTransferMember">onTransferMember</a></li><li><a href="orca.AddressBook.html#event:onUpdateContact">onUpdateContact</a></li><li><a href="orca.AddressBook.html#event:onUpdateMember">onUpdateMember</a></li><li><a href="orca.Call.html#event:onAddStream">onAddStream</a></li><li><a href="orca.Call.html#event:onConnected">onConnected</a></li><li><a href="orca.Call.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Call.html#event:onError">onError</a></li><li><a href="orca.Call.html#event:onMessage">onMessage</a></li><li><a href="orca.Call.html#event:onStatus">onStatus</a></li><li><a href="orca.Chat.html#event:onConnected">onConnected</a></li><li><a href="orca.Chat.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Chat.html#event:onError">onError</a></li><li><a href="orca.Chat.html#event:onReceived">onReceived</a></li><li><a href="orca.Chat.html#event:onStatus">onStatus</a></li><li><a href="orca.FileTransfer.html#event:onConnected">onConnected</a></li><li><a href="orca.FileTransfer.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.FileTransfer.html#event:onError">onError</a></li><li><a href="orca.FileTransfer.html#event:onReceived">onReceived</a></li><li><a href="orca.FileTransfer.html#event:onStatus">onStatus</a></li><li><a href="orca.ImageShare.html#event:onConnected">onConnected</a></li><li><a href="orca.ImageShare.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.ImageShare.html#event:onError">onError</a></li><li><a href="orca.ImageShare.html#event:onReceived">onReceived</a></li><li><a href="orca.ImageShare.html#event:onStatus">onStatus</a></li><li><a href="orca.Session.html#event:onConnected">onConnected</a></li><li><a href="orca.Session.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Session.html#event:onError">onError</a></li><li><a href="orca.Session.html#event:onIncoming">onIncoming</a></li><li><a href="orca.Session.html#event:onIncomingChat">onIncomingChat</a></li><li><a href="orca.Session.html#event:onIncomingFileTransfer">onIncomingFileTransfer</a></li><li><a href="orca.Session.html#event:onIncomingImageShare">onIncomingImageShare</a></li><li><a href="orca.Session.html#event:onIncomingPageModeChat">onIncomingPageModeChat</a></li><li><a href="orca.Session.html#event:onIncomingSmsIMDNMessage">onIncomingSmsIMDNMessage</a></li><li><a href="orca.Session.html#event:onIncomingSmsMessage">onIncomingSmsMessage</a></li><li><a href="orca.Session.html#event:onPageModeChatMessageFailed">onPageModeChatMessageFailed</a></li><li><a href="orca.Session.html#event:onPageModeChatMessageSent">onPageModeChatMessageSent</a></li><li><a href="orca.Session.html#event:onSmsIMDNMessageFailed">onSmsIMDNMessageFailed</a></li><li><a href="orca.Session.html#event:onSmsIMDNMessageSent">onSmsIMDNMessageSent</a></li><li><a href="orca.Session.html#event:onSmsMessageFailed">onSmsMessageFailed</a></li><li><a href="orca.Session.html#event:onSmsMessageSent">onSmsMessageSent</a></li><li><a href="orca.Session.html#event:onStatus">onStatus</a></li><li><a href="orca.Session.html#event:onUpdatePresenceFail">onUpdatePresenceFail</a></li><li><a href="orca.Session.html#event:onUpdatePresenceSuccess">onUpdatePresenceSuccess</a></li></ul><h3>Namespaces</h3><ul><li><a href="orca.html">orca</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Wed Sep 16 2015 13:13:39 GMT-0500 (CDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

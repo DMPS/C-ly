@@ -1,0 +1,545 @@
+/***** Mobile adjustments *****/
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: text; /* "none" causes form elements to be unusable */
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*:focus {
+	outline: none;
+}
+[ui-scroller] {
+    overflow-y: auto;
+}
+.isTouch [ui-scroller] {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+/***** Layout *****/
+
+body {
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	background: #000;
+	font-size: 1.4em;
+	font-family: Helvetica, Arial, sans-serif;
+}
+.container {
+	width: 100%;
+	height: 100%;
+	background: #1b1b1b url('../assets/alulogo.png');
+	background: url('../assets/alulogo.png'), linear-gradient(#1b1b1b, #080808);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+@media screen and (max-width: 850px) {
+	.container {
+		background-size: contain, contain;
+	}
+}
+.pageContent {
+	width: 100%;
+	padding: 20px 30px;
+	margin: 0 auto;
+	border-top: 8px solid #727272;
+}
+@media screen and (min-width: 900px) {
+	.pageContent {
+		width: 900px;
+	}
+}
+.nearBottom {
+	position: absolute;
+	bottom: 17%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+@media screen and (max-height: 530px) {
+	.nearBottom {
+		bottom: 5%;
+	}
+}
+
+/***** Screens *****/
+
+#screens {
+	position: relative;
+}
+#screens > div {
+	width: 100%;
+	min-height: 100%;
+	background-color: #080808;
+	background-image: linear-gradient(#1b1b1b, #080808);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	padding: 1px;
+}
+#screens .screen_settings {
+	background-size: 500px 500px;
+}
+#screens .screen_loading, #screens .screen_offline {
+	background-image: none;
+	background-color: transparent;
+}
+.noDialer #screens .screen_home {
+	background-image: none;
+	background-color: rgba(20, 20, 20, 0.85);
+}
+#sessionErrorMessage {
+	display: inline-block;
+	background: #000;
+	background: rgba(0, 0, 0, 0.7);
+	border-top: 2px solid #727272;
+	border-bottom: 2px solid #727272;
+	padding: 0.8em 1.6em;
+	margin: 0.2em 1em;
+}
+.loadingSpinner {
+	background: url('../assets/ajax-loader.gif') center center no-repeat;
+	height: 66px;
+}
+
+#screens .screen_call {
+	text-align: center;
+}
+#callparty {
+	font-size: 1.5em;
+	margin-top: 10%;
+}
+#callstatus {
+}
+#callButtons {
+}
+
+#screens .screen_home {
+	text-align: center;
+	padding: 20px 20px 1px 20px;
+}
+.screen_home .btnicon {
+	font-size: 1.4em;
+}
+.currentUserMsg {
+	font-size: 0.8em;
+	color: #b5b5b5;
+	margin-bottom: 0.5em;
+}
+#dialerform {
+	font-size: 1em;
+}
+#dialoutput {
+	font-size: 1.5em;
+	width: 9.3em;
+	margin-bottom: 0.3em;
+}
+#dialpad {
+	width: 7.3em;
+	font-size: 1.9em;
+	line-height: 0.5em;
+	margin: 0 auto;
+}
+#dialpad > span {
+	display: inline-block;
+	border: 2px solid #727272;
+	border-radius: 50%;
+	margin: 0.2em;
+	width: 2em;
+	height: 2em;
+	cursor: pointer;
+	background: #1b1b1b;
+	background: linear-gradient(#333333, #1b1b1b 30%, #1b1b1b 50%, #080808);
+}
+#dialpad > span > span {
+	display: inline-block;
+	width: 100%;
+}
+#dialpad .n {
+	margin-top: 0.5em;
+}
+#dialpad .s {
+	font-size: 0.4em;
+	color: #999;
+}
+
+/* Dial Pad Screen Optimizations */
+/* Inherited default is Large Portrait (full laptop screen) */
+
+/* Large Landscape (laptop screen with less height) */
+@media (max-height: 640px) and (min-width: 741px) {
+	#dialerform {
+		float: left;
+		width: 40%;
+		padding-top: 5em;
+	}
+	#dialpad {
+		float: right;
+		margin-right: 5%;
+	}
+}
+
+/* Medium Portrait (phone in portrait) */ 
+@media (max-height: 640px) and (max-width: 740px) {
+	#dialerform {
+		font-size: 0.8em;
+		float: none;
+		width: 100%;
+		padding-top: 0;
+	}
+	#dialpad {
+		font-size: 1.5em; /* previously 1.74em */
+		float: none;
+		margin-right: auto;
+	}
+}
+
+/* Medium Landscape */
+@media (max-height: 510px) and (min-width: 625px) {
+	#dialerform {
+		font-size: 0.8em;
+		float: left;
+		width: 50%;
+		padding-top: 5em;
+	}
+	#dialpad {
+		font-size: 1.5em;
+		float: right;
+	}
+}
+
+/* Small Portrait */
+@media (max-height: 540px) and (max-width: 740px) {
+	#dialerform {
+		font-size: 0.6em;
+		float: none;
+		width: 100%;
+		padding-top: 0;
+	}
+	#dialpad {
+		font-size: 1.2em;
+		float: none;
+		margin-right: auto;
+	}
+}
+
+/* Small Landscape (phone in landscape) */
+@media (max-height: 470px) and (min-width: 550px) {
+	.currentUserMsg {
+		position: absolute;
+		left: 10px;
+		top: 0;
+		width: 50%;
+		padding-top: 1em;
+	}
+	.noDialer .currentUserMsg {
+		position: relative;
+		left: 0;
+		top: 0;
+		width: 100%;
+		padding-top: 0;
+	}
+	#dialerform {
+		font-size: 0.85em;
+		float: left;
+		width: 50%;
+		padding-top: 5em;
+	}
+	#dialpad {
+		font-size: 1.2em;
+		float: right;
+	}
+	#screens .screen_home {
+		padding: 10px 20px 1px 20px;
+	}
+}
+
+#btnMakeCall, #btnCallAccept {
+	background-image: url('../assets/incomingcall_pickup_icononly.png');
+	background-image: url('../assets/incomingcall_pickup_icononly.png'),
+		linear-gradient(#333333, #1b1b1b 30%, #1b1b1b 50%, #080808);
+}
+#btnCallDisconnect, #btnCallReject {
+	background-image: url('../assets/incomingcall_hangup_icononly.png');
+	background-image: url('../assets/incomingcall_hangup_icononly.png'),
+		linear-gradient(#333333, #1b1b1b 30%, #1b1b1b 50%, #080808);
+}
+#btnBackspace {
+	background-image: url('../assets/backspace.png');
+	background-image: url('../assets/backspace.png'),
+		linear-gradient(#333333, #1b1b1b 30%, #1b1b1b 50%, #080808);
+}
+
+/***** Toolbars *****/
+
+.toolbar {
+	width: 100%;
+	height: 60px;
+	overflow: hidden;
+}
+.bottomBar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	border-top: 2px solid #3f3f3f;
+	border-bottom: 2px solid #151515;
+	background: #1b1b1b;
+	background: linear-gradient(#1b1b1b, #080808);
+	text-align: center;
+}
+.toolbar > span {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+}
+.toolbar > span.btn {
+	background-size: 30px 30px;
+	background-position: 15px 15px;
+	background-repeat: no-repeat;
+	padding: 15px 5px 0 55px;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	width: auto;
+	background-image: none;
+}
+#toggleSettings {
+	background-image: url('../assets/settings.png');
+}
+#revertSettings {
+	background-image: url('../assets/cancel.png');
+	color: #b5b5b5;
+}
+#toggleForwarding {
+	background-image: url('../assets/steering.png');
+	color: #f40909;
+}
+#toggleForwarding span {
+	background-image: url('../assets/ajax-loader.gif');
+	background-size: contain;
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+}
+#toggleLogin {}
+#loginState {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin: 15px;
+	border-radius: 50%;
+	background: #95180f;
+	background: radial-gradient(circle, #95180f, #65110b);
+}
+#loginState.disconnected {}
+#loginState.connecting {
+	background: #a59006;
+	background: radial-gradient(circle, #a59006, #7d6d03);
+}
+#loginState.connected {
+	background: #3ec10b;
+	background: radial-gradient(circle, #4df70a, #3ec10b);
+}
+.noDialer #loginState {
+	background: #464646;
+	background: radial-gradient(circle, #464646, #353535);
+}
+
+#tabs {
+	width: 100%;
+	background: #000;
+	border-bottom: 2px solid #191919;
+}
+#tabs > span {
+	background: #191919;
+	height: 50px;
+	display: inline-block;
+	padding: 0.6em 0.8em 0 0.8em;
+	border: 2px solid #555;
+}
+#tabs > span.selected {
+	background: #555;
+}
+
+/***** Text content *****/
+
+h2 {
+	font-weight: normal;
+	border-bottom: 2px solid #3f3f3f;
+	margin: 0.6em 0;
+	padding: 0 0 0.4em 0;
+}
+
+p, fieldset, blockquote {
+	margin: 1em 0 0 0;
+	padding: 0;
+	border: 0;
+}
+p:last-child, fieldset:last-child, blockquote:last-child {
+	margin-bottom: 1em;
+}
+
+blockquote {
+	padding: 0 0 0 1em;
+	border-left: 2px solid #3f3f3f;
+}
+blockquote.expandable {
+	padding-top: 0.3em;
+	padding-bottom: 1px;
+	margin-top: 0.3em;
+}
+.expandable > :first-child {
+	margin-top: 0;
+}
+hr {
+	color: transparent;
+	border: 0;
+	border-top: 2px solid #3f3f3f;
+	padding: 0;
+	margin: 1em 0;
+}
+
+
+/***** Forms *****/
+
+.btn, input[type="button"], button {
+	font-size: 1.25em;
+	display: inline-block;
+	padding: 0.4em 1.2em;
+	margin: 0.2em;
+	border: 2px solid #727272;
+	border-radius: 1.5em;
+	cursor: pointer;
+	color: #fff;
+	vertical-align: bottom;
+	background: #1b1b1b;
+	background: linear-gradient(#333333, #1b1b1b 30%, #1b1b1b 50%, #080808);
+}
+.btn.btnicon {
+  height: 2.1em;
+  min-width: 2.1em;
+  padding: 0.4em 0.4em 0 1.7em;
+  background-repeat: no-repeat;
+  background-size: 1.2em 1.2em;
+  background-position: 0.4em 0.4em;
+  background-size: 1.2em 1.2em, cover;
+  background-position: 0.4em 0.4em, 0 0;
+}
+.btn.accept {
+	background-color: #00ff00;
+}
+.btn.reject, .btn.hangup {
+	background-color: #ff0000;
+}
+.chkbx + span, .rdio + span {
+	display: inline-block;
+	vertical-align: middle;
+	border: 2px solid #727272;
+	background-color: #000;
+	margin: 0 0.2em;
+}
+.chkbx + span {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 0.2em;
+}
+.chkbx:checked + span {
+	background-image: url('../assets/checkbox.png');
+	background-size: contain;
+}
+.rdio + span {
+	width: 1.2em;
+	height: 1.2em;
+	border-radius: 50%;
+}
+.rdio:checked + span {
+	background-color: #727272;
+}
+@media (min-width: 640px) {
+	fieldset legend {
+		float: left;
+	}
+}
+.formWarning {
+	color: #ff0000;
+}
+#padding {
+	display: none;
+	height: 10em;
+}
+input[type='text'], input[type='tel'], input[type='password'], input[type='number'], textarea {
+	font-size: 1.2em;
+	color: #fff;
+	background: #000;
+	border: 2px solid #727272;
+	border-radius: 1em;
+	padding: 0.2em 0.5em;
+	margin: 0 0.2em;
+	width: 100%;
+}
+textarea {
+	font-family: Helvetica, Arial, sans-serif;
+	resize: none;
+}
+textarea[name='beaconUuid'] {
+	height: 1.7em;
+}
+@media (max-width: 670px) {
+	textarea[name='beaconUuid'] {
+		height: 3em;
+	}
+}
+@media (max-width: 470px) {
+	textarea[name='beaconUuid'] {
+		height: 4.2em;
+	}
+}
+/* Placeholder rules must be seperate per browser */
+::-webkit-input-placeholder {
+    color: #555;
+}
+:-moz-placeholder {
+    color: #555;
+}
+::-moz-placeholder {
+    color: #555;
+}
+:-ms-input-placeholder {
+    color: #555;
+}
+
+
+/***** Helpers *****/
+
+.smaller {
+	font-size: 0.85em;
+}
+.leanLeft {
+	float: left;
+}
+.leanRight {
+	float: right;
+}
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+/***** Hidden *****/
+
+h1, #screens > div, .bottomBar, .screen_call video, .formWarning, .chkbx, .rdio,
+.noDialer .dialer {
+	display: none;
+}

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: ImageShare</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: ImageShare</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="orca.html">orca</a>.</span>
+    
+    ImageShare
+    </h2>
+    
+        <div class="class-description">ImageShare objects are obtained by calling the <a href="orca.Session.html#createFileTransfer">orca.Session#createFileTransfer</a>
+method or handling the onIncomingImageShare event of a connected <a href="orca.Session.html">orca.Session</a> instance
+(<a href="orca.Session.html#event:onIncomingImageShare">orca.Session#event:onIncomingImageShare</a>)</div>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="ImageShare"><span class="type-signature"></span>new ImageShare<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">Provides access to methods for managing an outgoing or incoming image share</p>
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1086">line 1086</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="connect"><span class="type-signature"></span>connect<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Attempts to reach the recipient and establish a connection. 
+For an incoming communication, this method is used to accept it.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1125">line 1125</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="disconnect"><span class="type-signature"></span>disconnect<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Ends an active communication.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1132">line 1132</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getStatus"><span class="type-signature"></span>getStatus<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="global.html#CommStatus">CommStatus</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Retrieves the current status of this communication
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1117">line 1117</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="global.html#CommStatus">CommStatus</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="id"><span class="type-signature"></span>id<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Gets a unique identifier for the communication
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1101">line 1101</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="reject"><span class="type-signature"></span>reject<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Decline an incoming communication.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1139">line 1139</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="remoteIdentities"><span class="type-signature"></span>remoteIdentities<span class="signature">()</span><span class="type-signature"> &rarr; {PeerIdentity[]}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Gets the identities of the remote peers attached to this communication
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1109">line 1109</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">PeerIdentity[]</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Events</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="event:onConnected">onConnected</h4>
+    
+    
+    <p class="summary">Triggered when the communication is connected</p>
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Event">Event</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">event data</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1148">line 1148</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:onDisconnected">onDisconnected</h4>
+    
+    
+    <p class="summary">Triggered when the communication is disconnected</p>
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Event">Event</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">event data</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1156">line 1156</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:onError">onError</h4>
+    
+    
+    <p class="summary">Triggered when an error condition occurs</p>
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#CommError">CommError</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Indicates the error that caused the event</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Event">Event</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">event data</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1165">line 1165</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:onReceived">onReceived</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Triggered when the complete file is received from the other party. Only the recipient will get this event.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Blob</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The file that was received</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Event">Event</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">event data</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1183">line 1183</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:onStatus">onStatus</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Triggered when a change in the session state occurs
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#CommStatus">CommStatus</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Indicates the state that caused the event</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#Event">Event</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">event data</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="orca.js.html">orca.js</a>, <a href="orca.js.html#line1174">line 1174</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="orca.AddressBook.html">AddressBook</a></li><li><a href="orca.Call.html">Call</a></li><li><a href="orca.Chat.html">Chat</a></li><li><a href="orca.FileTransfer.html">FileTransfer</a></li><li><a href="orca.ImageShare.html">ImageShare</a></li><li><a href="orca.ManagedStream.html">ManagedStream</a></li><li><a href="orca.Session.html">Session</a></li></ul><h3>Events</h3><ul><li><a href="orca.AddressBook.html#event:onAddContact">onAddContact</a></li><li><a href="orca.AddressBook.html#event:onAddMember">onAddMember</a></li><li><a href="orca.AddressBook.html#event:onDeleteContact">onDeleteContact</a></li><li><a href="orca.AddressBook.html#event:onDeleteList">onDeleteList</a></li><li><a href="orca.AddressBook.html#event:onDeleteMember">onDeleteMember</a></li><li><a href="orca.AddressBook.html#event:onError">onError</a></li><li><a href="orca.AddressBook.html#event:onGetContacts">onGetContacts</a></li><li><a href="orca.AddressBook.html#event:onGetLists">onGetLists</a></li><li><a href="orca.AddressBook.html#event:onGetMembers">onGetMembers</a></li><li><a href="orca.AddressBook.html#event:onTransferMember">onTransferMember</a></li><li><a href="orca.AddressBook.html#event:onUpdateContact">onUpdateContact</a></li><li><a href="orca.AddressBook.html#event:onUpdateMember">onUpdateMember</a></li><li><a href="orca.Call.html#event:onAddStream">onAddStream</a></li><li><a href="orca.Call.html#event:onConnected">onConnected</a></li><li><a href="orca.Call.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Call.html#event:onError">onError</a></li><li><a href="orca.Call.html#event:onMessage">onMessage</a></li><li><a href="orca.Call.html#event:onStatus">onStatus</a></li><li><a href="orca.Chat.html#event:onConnected">onConnected</a></li><li><a href="orca.Chat.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Chat.html#event:onError">onError</a></li><li><a href="orca.Chat.html#event:onReceived">onReceived</a></li><li><a href="orca.Chat.html#event:onStatus">onStatus</a></li><li><a href="orca.FileTransfer.html#event:onConnected">onConnected</a></li><li><a href="orca.FileTransfer.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.FileTransfer.html#event:onError">onError</a></li><li><a href="orca.FileTransfer.html#event:onReceived">onReceived</a></li><li><a href="orca.FileTransfer.html#event:onStatus">onStatus</a></li><li><a href="orca.ImageShare.html#event:onConnected">onConnected</a></li><li><a href="orca.ImageShare.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.ImageShare.html#event:onError">onError</a></li><li><a href="orca.ImageShare.html#event:onReceived">onReceived</a></li><li><a href="orca.ImageShare.html#event:onStatus">onStatus</a></li><li><a href="orca.Session.html#event:onConnected">onConnected</a></li><li><a href="orca.Session.html#event:onDisconnected">onDisconnected</a></li><li><a href="orca.Session.html#event:onError">onError</a></li><li><a href="orca.Session.html#event:onIncoming">onIncoming</a></li><li><a href="orca.Session.html#event:onIncomingChat">onIncomingChat</a></li><li><a href="orca.Session.html#event:onIncomingFileTransfer">onIncomingFileTransfer</a></li><li><a href="orca.Session.html#event:onIncomingImageShare">onIncomingImageShare</a></li><li><a href="orca.Session.html#event:onIncomingPageModeChat">onIncomingPageModeChat</a></li><li><a href="orca.Session.html#event:onIncomingSmsIMDNMessage">onIncomingSmsIMDNMessage</a></li><li><a href="orca.Session.html#event:onIncomingSmsMessage">onIncomingSmsMessage</a></li><li><a href="orca.Session.html#event:onPageModeChatMessageFailed">onPageModeChatMessageFailed</a></li><li><a href="orca.Session.html#event:onPageModeChatMessageSent">onPageModeChatMessageSent</a></li><li><a href="orca.Session.html#event:onSmsIMDNMessageFailed">onSmsIMDNMessageFailed</a></li><li><a href="orca.Session.html#event:onSmsIMDNMessageSent">onSmsIMDNMessageSent</a></li><li><a href="orca.Session.html#event:onSmsMessageFailed">onSmsMessageFailed</a></li><li><a href="orca.Session.html#event:onSmsMessageSent">onSmsMessageSent</a></li><li><a href="orca.Session.html#event:onStatus">onStatus</a></li><li><a href="orca.Session.html#event:onUpdatePresenceFail">onUpdatePresenceFail</a></li><li><a href="orca.Session.html#event:onUpdatePresenceSuccess">onUpdatePresenceSuccess</a></li></ul><h3>Namespaces</h3><ul><li><a href="orca.html">orca</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Wed Sep 16 2015 13:13:40 GMT-0500 (CDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

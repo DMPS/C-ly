@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title>Simple Orca Example App</title>
+        
+        <!-- Orca ALU library -->
+
+		<!-- Orca Min -->
+		<script type="text/javascript" src="../../orca.min.js"></script>
+
+		<!-- Orca Debug
+		<script type="text/javascript" src="../../msrp-stack/src/ChunkReceiver.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/ChunkSender.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/ConnectionConfig.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/ContentType.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/CPIMParser.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Exceptions.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Message.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/parser.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Status.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/Uri.js"></script>
+		<script type="text/javascript" src="../../msrp-stack/src/util.js"></script>
+		<script type="text/javascript" src="../../orca_version.js"></script>
+		<script type="text/javascript" src="../../orca.js"></script>
+		<script type="text/javascript" src="../../orcaALU.js"></script>
+		<script type="text/javascript" src="../../sip.js"></script>
+		<script type="text/javascript" src="../../sipMsrp.js"></script>
+		<script type="text/javascript" src="../../sipAdapter.js"></script>
+		<script type="text/javascript" src="../../restAdapter.js"></script>
+		-->
+
+        <!-- App Code -->
+        <script type="text/javascript" src="application.js"></script>
+        
+    </head>
+    <body>
+        <form id="formSession">
+            <p>
+                <label>Login: <span class="elPrefix"></span><input type="text" name="txtLogin" /><span class="elSuffix"></span></label>
+                <label>Password: <input type="password" name="txtPassword" /></label>
+                <input type="submit" id="btnSession" value="Login" /><!-- Button triggers sessionCreate() or sessionEnd() -->
+                <span id="errSession" class="error"></span>
+            </p>
+        </form>
+        <form id="formCall">
+            <p>
+                <label>Call: <span class="elPrefix"></span><input type="text" name="txtCallTo" /><span class="elSuffix"></label>
+                <input type="submit" id="btnCall" value="Make Call" /><!-- Button triggers callCreate() or callEnd() -->
+                <span id="errCall" class="error"></span>
+            </p>
+        </form>
+        <p>
+            <input type="button" id="btnAccept" value="Accept" /><!-- Button triggers callAccept() -->
+            <input type="button" id="btnReject" value="Reject" /><!-- Button triggers callReject() -->
+            <span id="elIncoming">No incoming call</span>
+        </p>
+        <p>
+            <video id="vidRemote" autoplay="autoplay"></video>
+            <video id="vidLocal" autoplay="autoplay" muted="muted"></video>
+        </p>
+        <p>
+            <textarea id="elLogs">===== Events Log =====</textarea>
+        </p>
+        
+        <style type="text/css">
+            body { font-family: Helvetica, Arial, sans-serif; font-size: 90%; margin: 0; padding: 5px 20px; }
+            p { margin: 15px 0; padding: 0; }
+            .error { color: red }
+            video { border: 1px solid #aaa; }
+            #vidLocal { width: 100px; height: 75px; }
+            #vidRemote { width: 400px; height: 300px; }
+            @media all and (max-width: 439px) { #vidRemote { width: 100%; } }
+            #elLogs { width: 100%; height: 250px; }
+			#WebSocketCertificatePrompt { position: relative; border: 1px solid #ff0000; padding: 0.5em; margin-bottom: 0.5em; }
+			#WebSocketCertificatePrompt button { position: absolute; top: 0; right: 0; margin: 0.3em; padding: 0.1em 0.3em; }
+        </style>
+    </body>
+</html>
